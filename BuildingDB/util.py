@@ -1,3 +1,7 @@
+from rapidfuzz import fuzz, process
+import pytesseract
+from pdf2image import convert_from_path
+
 court_mapping = {
     'Court of Appeals of Ohio, Tenth District, Franklin County.': 'Ohio Supreme Court',
     'Court of Criminal Appeals of Alabama.': 'Court of Criminal Appeals of Alabama',
@@ -71,3 +75,96 @@ court_mapping = {
     'Ohio Supreme Court': 'Ohio Supreme Court',
     'Supreme Court of Louisiana': 'Supreme Court of Louisiana'
 }
+
+def pdf_to_text(pdf_path, output_txt=None, lang='eng'):
+    text = ""
+    
+    # Convert PDF pages to images
+    images = convert_from_path(pdf_path)
+
+    for i, img in enumerate(images):
+        page_text = pytesseract.image_to_string(img, lang=lang)
+        text += f"\n--- Page {i+1} ---\n{page_text}\n"
+
+    # Save to file if output path is provided
+    if output_txt:
+        with open(output_txt, "w", encoding="utf-8") as f:
+            f.write(text)
+
+    return text
+
+def best_fuzzy_match(query, choices):
+
+    query_cleaned = query.lower().replace(" ", "")  # Normalize query
+    choices_cleaned = {c: c.lower().replace(" ", "") for c in choices}  # Normalize choices
+
+    best_match, score, _ = process.extractOne(query_cleaned, choices_cleaned.values(), scorer=fuzz.ratio)
+
+    # Get the original string from the dictionary
+    best_original = next(orig for orig, cleaned in choices_cleaned.items() if cleaned == best_match)
+
+    return best_original, score
+
+
+import re
+
+def simple_sent_tokenize(text):
+    """
+    A simple sentence tokenizer that splits text on punctuation
+    (., !, or ?) followed by whitespace. This heuristic might not
+    cover every edge case but works well for many texts.
+    """
+    sentences = re.split(r'(?<=[.!?])\s+', text.strip())
+    return sentences
+
+def chunk_text(text, chunk_size=200, overlap=20):
+    """
+    Splits the input text into chunks with a target word count per chunk
+    and overlapping sentences to maintain context.
+
+    Args:
+        text (str): The text to be chunked.
+        chunk_size (int): Approximate target number of words per chunk.
+        overlap (int): Minimum number of words to include as overlap in subsequent chunks.
+
+    Returns:
+        list[str]: List of text chunks.
+    """
+    sentences = simple_sent_tokenize(text)
+    chunks = []
+    current_chunk = []
+    current_words = 0
+
+    for sentence in sentences:
+        sentence_word_count = len(sentence.split())
+        
+        # If adding this sentence would exceed the chunk size and the current chunk isn't empty,
+        # finalize the current chunk.
+        if current_words + sentence_word_count > chunk_size and current_chunk:
+            chunks.append(" ".join(current_chunk))
+            
+            # Prepare the overlap for the next chunk: backtrack through the current chunk
+            # and collect sentences until the overlap word count is reached.
+            new_chunk = []
+            new_words = 0
+            for sent in reversed(current_chunk):
+                words_in_sent = len(sent.split())
+                if new_words + words_in_sent <= overlap:
+                    new_chunk.insert(0, sent)
+                    new_words += words_in_sent
+                else:
+                    break
+            
+            # Start a new chunk with the overlapping sentences.
+            current_chunk = new_chunk.copy()
+            current_words = new_words
+        
+        # Add the current sentence to the chunk.
+        current_chunk.append(sentence)
+        current_words += sentence_word_count
+
+    # Add any remaining sentences as a final chunk.
+    if current_chunk:
+        chunks.append(" ".join(current_chunk))
+    
+    return chunks

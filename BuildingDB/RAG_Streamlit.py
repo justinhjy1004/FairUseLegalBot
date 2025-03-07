@@ -34,6 +34,8 @@ mock_data = [
 # ---------------------------
 st.sidebar.title("Options")
 
+GEMINI_API = st.text_input("Gemini API", "")
+
 st.sidebar.subheader("RAG Method Components")
 use_similarity = st.sidebar.checkbox("Use Similarity", value=True)
 use_reranking = st.sidebar.checkbox("Use Reranking")
@@ -65,13 +67,18 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
 
-    # Determine documents to retrieve: if ALL DOCUMENTS is checked, ignore num_docs.
-    if select_all:
-        result_docs = mock_data
-    else:
-        result_docs = mock_data[:num_docs]
+    if GEMINI_API == "":
+        st.warning('Valid Gemini API Required', icon="⚠️")
     
-    # Display the retrieved document titles in a table.
-    df = pd.DataFrame(result_docs)
-    st.write("Retrieved Documents:")
-    st.table(df)
+    else:
+
+        # Determine documents to retrieve: if ALL DOCUMENTS is checked, ignore num_docs.
+        if select_all:
+            result_docs = mock_data
+        else:
+            result_docs = mock_data[:num_docs]
+        
+        # Display the retrieved document titles in a table.
+        df = pd.DataFrame(result_docs)
+        st.write("Retrieved Documents:")
+        st.table(df)
