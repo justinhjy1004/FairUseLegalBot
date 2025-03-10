@@ -23,6 +23,11 @@ class Mini_Embeddings:
     def embed_query(self, query: str) -> List[float]:
         return self.model.encode([query])[0]
     
+
+   
+mini_embedder = Mini_Embeddings()
+
+"""
 class Gemini_Embeddings:
     def __init__(self):
         self.model = genai.Client(api_key=os.environ["GEMINI_API"])
@@ -33,10 +38,7 @@ class Gemini_Embeddings:
             contents=query)
 
         return list(result.embeddings[0])[0][1]
-   
-mini_embedder = Mini_Embeddings()
-
-"""
+    
 gemini_embedder = Gemini_Embeddings()
 
 def query_search_similar_cases(tx, query_text, embedding_model, top_k=5):
