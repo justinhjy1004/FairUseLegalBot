@@ -1,13 +1,12 @@
 import os 
-from dotenv import load_dotenv
-from sentence_transformers import SentenceTransformer
+#from dotenv import load_dotenv
+#from sentence_transformers import SentenceTransformer
 from neo4j import GraphDatabase
 from typing import List
 import polars as pl
 from google import genai
-import time
 
-load_dotenv()
+#load_dotenv()
 
 URI = os.environ["AURA_URI"]
 AUTH = (os.environ["AURA_user"], os.environ["AURA_password"])
@@ -16,7 +15,7 @@ AUTH = (os.environ["AURA_user"], os.environ["AURA_password"])
 #AUTH = ("neo4j", "fairusecases")
 
 driver = GraphDatabase.driver(URI, auth=AUTH)
-
+"""
 class Mini_Embeddings:
     def __init__(self):
         self.model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2', token = os.environ["HUGGING_FACE"])
@@ -36,6 +35,8 @@ class Gemini_Embeddings:
         return list(result.embeddings[0])[0][1]
    
 mini_embedder = Mini_Embeddings()
+
+"""
 gemini_embedder = Gemini_Embeddings()
 
 def query_search_similar_cases(tx, query_text, embedding_model, top_k=5):

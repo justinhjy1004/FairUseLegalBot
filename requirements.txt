@@ -1,0 +1,3 @@
+polars
+neo4j
+google-genai
