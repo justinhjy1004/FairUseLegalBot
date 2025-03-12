@@ -1,6 +1,10 @@
 import streamlit as st
 import polars as pl
-from util import search_similar_cases
+from util import Retriever
+
+## Initialize Retriever
+
+retriever = Retriever()
 
 # ---------------------------
 # Sidebar Options
@@ -40,7 +44,7 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
 
-    df = search_similar_cases(query_text, top_k=num_docs)
+    df = retriever.search_similar_cases(query_text, top_k=num_docs)
         
     # Display the retrieved document titles in a table.
     st.write("Retrieved Documents:")
