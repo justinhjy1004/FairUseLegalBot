@@ -1,6 +1,6 @@
 import streamlit as st
-from RetrievelTesting.embedder import Retriever
-from RetrievelTesting.util import on_similarity_change, on_citation_change, on_court_stats_change
+from embedder import Retriever
+from util import on_similarity_change, on_citation_change, on_court_stats_change
 
 ## Initialize Retriever
 
