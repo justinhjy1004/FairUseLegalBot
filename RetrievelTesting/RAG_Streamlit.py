@@ -13,7 +13,17 @@ retriever = Retriever()
 st.sidebar.title("Options")
 
 st.sidebar.subheader("RAG Method Components")
-#use_gemini = st.sidebar.checkbox("Use Gemini?", value=False)
+
+# ---------------------------
+# Initialize weights in session state
+# ---------------------------
+if "similarity" not in st.session_state:
+    st.session_state.similarity = 0.33
+if "citation" not in st.session_state:
+    st.session_state.citation = 0.33
+if "court_stats" not in st.session_state:
+    st.session_state.court_stats = 0.34
+    
 st.sidebar.slider(
     "Use Similarity",
     min_value=0.0,
