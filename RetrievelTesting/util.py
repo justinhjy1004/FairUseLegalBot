@@ -1,44 +1,46 @@
-import os 
-from neo4j import GraphDatabase
-from typing import List
-import polars as pl
-from google import genai
-from query import query_search_by_similarity
+import streamlit as st
 
-##===================================
-## Initialize Database and Embedder
-##===================================
+# ---------------------------
+# Callback Functions
+# ---------------------------
+def on_similarity_change():
+    # The new value set by the user:
+    new_sim = st.session_state.similarity
+    # Old values for the other two:
+    old_citation = st.session_state.citation
+    old_court = st.session_state.court_stats
+    remaining = 1 - new_sim
+    old_sum = old_citation + old_court
+    if old_sum == 0:
+        # Avoid division by zero; split equally.
+        st.session_state.citation = remaining / 2
+        st.session_state.court_stats = remaining / 2
+    else:
+        st.session_state.citation = old_citation / old_sum * remaining
+        st.session_state.court_stats = old_court / old_sum * remaining
 
-## Database Connections
-URI = os.environ["AURA_URI"]
-AUTH = (os.environ["AURA_user"], os.environ["AURA_password"])
+def on_citation_change():
+    new_cit = st.session_state.citation
+    old_sim = st.session_state.similarity
+    old_court = st.session_state.court_stats
+    remaining = 1 - new_cit
+    old_sum = old_sim + old_court
+    if old_sum == 0:
+        st.session_state.similarity = remaining / 2
+        st.session_state.court_stats = remaining / 2
+    else:
+        st.session_state.similarity = old_sim / old_sum * remaining
+        st.session_state.court_stats = old_court / old_sum * remaining
 
-driver = GraphDatabase.driver(URI, auth=AUTH)
-
-class Gemini_Embeddings:
-    def __init__(self):
-        self.model = genai.Client(api_key=os.environ["GEMINI_API"])
-            
-    def embed_query(self, query: str) -> List[float]:
-        result = self.model.models.embed_content(
-            model="text-embedding-004",
-            contents=query)
-
-        return list(result.embeddings[0])[0][1]
-    
-gemini_embedder = Gemini_Embeddings()
-
-class Retriever:
-    def __init__(self, embedding_model=gemini_embedder, driver=driver):
-        self.embedding_model = embedding_model
-        self.driver = driver
-
-    def search_similar_cases(self, text, top_k,embedder=gemini_embedder):
-
-        with driver.session() as session:
-            df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
-            
-            df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
-
-        return df
-
+def on_court_stats_change():
+    new_court = st.session_state.court_stats
+    old_sim = st.session_state.similarity
+    old_cit = st.session_state.citation
+    remaining = 1 - new_court
+    old_sum = old_sim + old_cit
+    if old_sum == 0:
+        st.session_state.similarity = remaining / 2
+        st.session_state.citation = remaining / 2
+    else:
+        st.session_state.similarity = old_sim / old_sum * remaining
+        st.session_state.citation = old_cit / old_sum * remaining

@@ -1,6 +1,6 @@
 import streamlit as st
-import polars as pl
-from util import Retriever
+from RetrievelTesting.embedder import Retriever
+from RetrievelTesting.util import on_similarity_change, on_citation_change, on_court_stats_change
 
 ## Initialize Retriever
 
@@ -14,9 +14,31 @@ st.sidebar.title("Options")
 
 st.sidebar.subheader("RAG Method Components")
 #use_gemini = st.sidebar.checkbox("Use Gemini?", value=False)
-use_similarity = st.sidebar.checkbox("Use Similarity", value=True)
-use_citation = st.sidebar.checkbox("Use Citation")
-use_court_stats = st.sidebar.checkbox("Use Court Stats")
+st.sidebar.slider(
+    "Use Similarity",
+    min_value=0.0,
+    max_value=1.0,
+    value=st.session_state.similarity,
+    key="similarity",
+    on_change=on_similarity_change,
+)
+st.sidebar.slider(
+    "Use Citation",
+    min_value=0.0,
+    max_value=1.0,
+    value=st.session_state.citation,
+    key="citation",
+    on_change=on_citation_change,
+)
+st.sidebar.slider(
+    "Use Court Stats",
+    min_value=0.0,
+    max_value=1.0,
+    value=st.session_state.court_stats,
+    key="court_stats",
+    on_change=on_court_stats_change,
+)
+
 use_graph_stats = st.sidebar.checkbox("Use Graph Stats (PageRank)")
 #select_all = st.sidebar.checkbox("ALL DOCUMENTS")
 
