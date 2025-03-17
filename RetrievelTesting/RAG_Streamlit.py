@@ -23,9 +23,9 @@ if "citation" not in st.session_state:
     st.session_state.citation = 0.33
 if "court_stats" not in st.session_state:
     st.session_state.court_stats = 0.34
-    
+
 st.sidebar.slider(
-    "Use Similarity",
+    "Textual Similarity Weight",
     min_value=0.0,
     max_value=1.0,
     value=st.session_state.similarity,
@@ -33,7 +33,7 @@ st.sidebar.slider(
     on_change=on_similarity_change,
 )
 st.sidebar.slider(
-    "Use Citation",
+    "Citation Weight",
     min_value=0.0,
     max_value=1.0,
     value=st.session_state.citation,
@@ -41,16 +41,13 @@ st.sidebar.slider(
     on_change=on_citation_change,
 )
 st.sidebar.slider(
-    "Use Court Stats",
+    "Court Weight",
     min_value=0.0,
     max_value=1.0,
     value=st.session_state.court_stats,
     key="court_stats",
     on_change=on_court_stats_change,
 )
-
-use_graph_stats = st.sidebar.checkbox("Use Graph Stats (PageRank)")
-#select_all = st.sidebar.checkbox("ALL DOCUMENTS")
 
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="5")

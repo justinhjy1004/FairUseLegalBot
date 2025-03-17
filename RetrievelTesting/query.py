@@ -5,8 +5,9 @@ def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
     query = """
         CALL db.index.vector.queryNodes('GeminiEmbeddingIndex', $top_k, $query_embedding)
         YIELD node, score
-        MATCH (node)-[:FROM]-()-[:OF]-(o:Opinion)-[:HAS_OPINION]-(c:Case)-[:DECIDED_IN]-(court:Court)
-        RETURN DISTINCT c.WestLawCaseName as Case, c.FiledDate AS FiledDate, score, court.Name AS CourtName
+        MATCH (node)-[:FROM]-()-[:OF]-(o:Opinion)-[:HAS_OPINION]-(c:Case)-[d:DECIDED_IN]-(court:Court)
+        WHERE d.Status IS NULL
+        RETURN DISTINCT c.WestLawCaseName AS Case, c.FiledDate AS FiledDate, score, court.Name AS CourtName, o.Summary AS Summary
         ORDER BY score DESC
     """
     
