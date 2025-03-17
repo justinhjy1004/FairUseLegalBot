@@ -80,7 +80,8 @@ if st.button("Run"):
 
     # Initialize a toggle state for each document to control the expander display.
     for row in df.iter_rows(named = True):
-        st.session_state[f"show_summary_{row["Case"]}"] = False
+        case_name = row["Case"]
+        st.session_state[f"show_summary_{case_name}"] = False
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
@@ -92,8 +93,8 @@ if "results_df" in st.session_state:
         case_name = row["Case"]
         # When the button is clicked, toggle the corresponding summary display flag.
         if st.button(case_name, key=f"button_{case_name}"):
-            st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}", False)
+            st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}")
         # If the flag is True, display an expander with the summary.
         if st.session_state.get(f"show_summary_{case_name}", False):
-            with st.expander(f"Summary for {case_name}", expanded=True):
+            with st.expander(f"LLM Summary for {case_name}", expanded=True):
                 st.write(row["Summary"])
