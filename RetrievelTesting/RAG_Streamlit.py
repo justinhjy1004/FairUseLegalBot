@@ -101,14 +101,15 @@ if "results_df" in st.session_state:
             if st.button("AI Summary of " + case_name, key=f"button_{case_name}"):
                 st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}")
 
-                if st.session_state[f"show_summary_{case_name}"]:
-                    with st.expander(f"LLM Summary for {case_name}", expanded=True):
-                        st.write(row["CourtName"])
-                        st.write(row["Summary"])
+        if st.session_state[f"show_summary_{case_name}"]:
+            with st.expander(f"LLM Summary for {case_name}", expanded=True):
+                st.write(row["CourtName"])
+                st.write(row["Summary"])
+
         with evaluation:
             if st.button("Evaluate " + case_name, key=f"eval_{case_name}"):
                 st.session_state[f"show_eval_{case_name}"] = not st.session_state.get(f"show_eval_{case_name}")
 
-                if st.session_state[f"show_eval_{case_name}"]:
-                    with st.expander(f"LLM Evaluation of {case_name} and Current Dispute", expanded=True):
-                        st.write(query_text)
+        if st.session_state[f"show_eval_{case_name}"]:
+            with st.expander(f"LLM Evaluation of {case_name} and Current Dispute", expanded=True):
+                st.write(query_text)
