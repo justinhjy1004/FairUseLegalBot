@@ -1,7 +1,7 @@
 import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change
-import polars as pl
+import pandas as pd
 
 ## Initialize Retriever
 
