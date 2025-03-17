@@ -83,7 +83,6 @@ if st.button("Run"):
         case_name = row["Case"]
         st.session_state[f"show_summary_{case_name}"] = False
         st.session_state[f"show_eval_{case_name}"] = False
-        st.session_state(f"evaluation_of_{case_name}") = ""
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
@@ -110,4 +109,4 @@ if "results_df" in st.session_state:
 
             if st.session_state[f"show_eval_{case_name}"]:
                 with st.expander(f"LLM Evaluation of {case_name} and Current Dispute", expanded=True):
-                    st.write(st.session_state.get(f"evaluation_of_{case_name}"))
+                    st.write(query_text)
