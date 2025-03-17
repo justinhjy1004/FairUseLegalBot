@@ -102,7 +102,7 @@ if "results_df" in st.session_state:
     # For each retrieved document, create a vertical button.
     for row in df.iter_rows(named = True):
 
-        case, summary, evaluation  = st.columns(3)
+        case, summary, evaluation  = st.columns([2,1,1])
 
         case_name = row["Case"]
 
