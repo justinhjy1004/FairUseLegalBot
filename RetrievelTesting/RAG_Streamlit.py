@@ -79,25 +79,21 @@ if st.button("Run"):
     st.session_state["results_df"] = df
 
     # Initialize a toggle state for each document to control the expander display.
-    for i in df.iter_rows(named = True):
-        st.session_state[f"show_summary_{i["Case"]}"] = False
+    for _, row in df.iterrows():
+        st.session_state[f"show_summary_{row["Case"]}"] = False
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
-
     df = st.session_state["results_df"]
     st.write("Retrieved Documents:")
 
     # For each retrieved document, create a vertical button.
-    for row in df.iter_rows(named = True):
-
+    for _, row in df.iterrows():
         case_name = row["Case"]
-
         # When the button is clicked, toggle the corresponding summary display flag.
-        if st.button(case_name, key=f"button_{row["Case"]}"):
-            st.session_state[f"show_summary_{row["Case"]}"] = not st.session_state.get(f"show_summary_{row["Case"]}", False)
-
+        if st.button(case_name, key=f"button_{case_name}"):
+            st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}", False)
         # If the flag is True, display an expander with the summary.
-        if st.session_state.get(f"show_summary_{row["Case"]}", False):
+        if st.session_state.get(f"show_summary_{case_name}", False):
             with st.expander(f"Summary for {case_name}", expanded=True):
                 st.write(row["Summary"])
