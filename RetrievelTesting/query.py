@@ -1,3 +1,5 @@
+import polars as pl
+
 def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
 
     query_embedding = embedding_model.embed_query(query_text)
@@ -11,4 +13,4 @@ def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
         ORDER BY score DESC
     """
     
-    return tx.run(query, top_k = top_k*3, query_embedding = query_embedding).to_df()
+    return pl.fram_pandas(tx.run(query, top_k = top_k*3, query_embedding = query_embedding).to_df())

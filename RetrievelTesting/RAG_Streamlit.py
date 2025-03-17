@@ -74,7 +74,7 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df = pl.from_pandas(retriever.search_similar_cases(query_text, top_k=num_docs))
+    df = retriever.search_similar_cases(query_text, top_k=num_docs)
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
