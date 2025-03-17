@@ -78,6 +78,8 @@ if st.button("Run"):
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
+    print(type(df))
+
     # Initialize a toggle state for each document to control the expander display.
     for _, row in df.iterrows():
         st.session_state[f"show_summary_{row["Case"]}"] = False
