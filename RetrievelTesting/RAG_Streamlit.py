@@ -72,9 +72,31 @@ query_text = st.text_area("Enter your case description", height=150)
 
 # Run button to trigger the retrieval process
 if st.button("Run"):
-
+    # Retrieve similar cases using the provided query
     df = retriever.search_similar_cases(query_text, top_k=num_docs)
-        
-    # Display the retrieved document titles in a table.
+    # Store results in session state so they persist across reruns.
+    st.session_state["results_df"] = df
+
+    # Initialize a toggle state for each document to control the expander display.
+    for i in df.index:
+        st.session_state[f"show_summary_{i}"] = False
+
+# If we have retrieval results stored, display them.
+if "results_df" in st.session_state:
+    
+    df = st.session_state["results_df"]
     st.write("Retrieved Documents:")
-    st.table(df)
+
+    # For each retrieved document, create a vertical button.
+    for i, row in df.iterrows():
+
+        case_name = row["Case"]
+
+        # When the button is clicked, toggle the corresponding summary display flag.
+        if st.button(case_name, key=f"button_{i}"):
+            st.session_state[f"show_summary_{i}"] = not st.session_state.get(f"show_summary_{i}", False)
+
+        # If the flag is True, display an expander with the summary.
+        if st.session_state.get(f"show_summary_{i}", False):
+            with st.expander(f"Summary for {case_name}", expanded=True):
+                st.write(row["Summary"])
