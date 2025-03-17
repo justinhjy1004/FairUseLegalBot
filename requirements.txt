@@ -2,3 +2,5 @@ polars
 neo4j
 google-genai
 pandas
+langchain_google_genai
+langchain_core
