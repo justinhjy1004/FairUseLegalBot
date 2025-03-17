@@ -10,7 +10,7 @@ def evaluate_case(summary, dispute):
         "dispute": dispute
     })
 
-    return evaluation.context
+    return evaluation.content
 
 
 ## Initialize Retriever
@@ -102,13 +102,16 @@ if "results_df" in st.session_state:
     # For each retrieved document, create a vertical button.
     for row in df.iter_rows(named = True):
 
-        summary, evaluation  = st.columns(2)
+        case, summary, evaluation  = st.columns(3)
 
         case_name = row["Case"]
 
+        with case:
+            st.write(case_name)
+
         with summary:
             # When the button is clicked, toggle the corresponding summary display flag.
-            if st.button("AI Summary of " + case_name, key=f"button_{case_name}"):
+            if st.button("LLM Summary", key=f"button_{case_name}"):
                 st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}")
 
         if st.session_state[f"show_summary_{case_name}"]:
@@ -117,7 +120,7 @@ if "results_df" in st.session_state:
                 st.write(row["Summary"])
 
         with evaluation:
-            if st.button(f"Relation to {case_name}", key=f"eval_{case_name}"):
+            if st.button(f"LLM Evaluation", key=f"eval_{case_name}"):
                 st.session_state[f"show_eval_{case_name}"] = not st.session_state.get(f"show_eval_{case_name}")
 
         if st.session_state[f"show_eval_{case_name}"]:
