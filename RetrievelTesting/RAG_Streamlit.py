@@ -94,7 +94,7 @@ if "results_df" in st.session_state:
         # When the button is clicked, toggle the corresponding summary display flag.
         if st.button(case_name, key=f"button_{case_name}"):
             st.session_state[f"show_summary_{case_name}"] = not st.session_state.get(f"show_summary_{case_name}")
-        # If the flag is True, display an expander with the summary.
-        if st.session_state.get(f"show_summary_{case_name}", False):
-            with st.expander(f"LLM Summary for {case_name}", expanded=True):
-                st.write(row["Summary"])
+
+            if st.session_state[f"show_summary_{case_name}"]:
+                with st.expander(f"LLM Summary for {case_name}", expanded=True):
+                    st.write(row["Summary"])
