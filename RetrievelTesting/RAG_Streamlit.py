@@ -78,10 +78,8 @@ if st.button("Run"):
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
-    print(type(df))
-
     # Initialize a toggle state for each document to control the expander display.
-    for _, row in df.iterrows():
+    for row in df.iter_rows(named = True):
         st.session_state[f"show_summary_{row["Case"]}"] = False
 
 # If we have retrieval results stored, display them.
@@ -90,7 +88,7 @@ if "results_df" in st.session_state:
     st.write("Retrieved Documents:")
 
     # For each retrieved document, create a vertical button.
-    for _, row in df.iterrows():
+    for row in df.iter_rows(named = True):
         case_name = row["Case"]
         # When the button is clicked, toggle the corresponding summary display flag.
         if st.button(case_name, key=f"button_{case_name}"):
