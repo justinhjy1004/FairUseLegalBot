@@ -61,7 +61,7 @@ st.sidebar.slider(
 )
 
 st.sidebar.subheader("Document Retrieval Count")
-num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="5")
+num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
 
 # Validate numeric input; if invalid, default to 1.
 try:
