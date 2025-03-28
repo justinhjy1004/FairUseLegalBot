@@ -60,7 +60,7 @@ st.sidebar.slider(
     on_change=on_court_stats_change,
 )
 
-include_citation = st.sidebar.st.checkbox("Include Citation")
+include_citation = st.sidebar.checkbox("Include Citation")
 
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
