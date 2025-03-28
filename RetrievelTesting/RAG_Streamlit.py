@@ -88,7 +88,10 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
 
-    print(st.session_state.similarity)
+    st.write(st.session_state.similarity)
+    st.write(st.session_state.court_stats)
+    st.write(st.session_state.citation)
+    
     # Retrieve similar cases using the provided query
     df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight= st.session_state.court_stats, case_weight= st.session_state.citation,top_k=num_docs)
 
