@@ -39,7 +39,7 @@ class Retriever:
 
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
 
-            df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
+            #df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
             
         return df
     
