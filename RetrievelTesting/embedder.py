@@ -40,9 +40,11 @@ class Retriever:
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
 
             df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
+            
+            df_cited = pl.from_pandas(session.execute_read(query_get_citation, df["Case"].to_list())).top_k(top_k, by = "CasePageRank")
 
-            if include_citation:
-                df_cited = pl.from_pandas(session.execute_read(query_get_citation, df["Case"].to_list())).top_k(top_k, by = "CasePageRank")
+        if include_citation:
+            return df, df_cited
 
-        return df
+        return df, ""
 

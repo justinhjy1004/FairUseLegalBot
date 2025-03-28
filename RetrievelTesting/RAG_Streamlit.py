@@ -98,16 +98,24 @@ if st.button("Run"):
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
-    df = st.session_state["results_df"]
+    df, df_cited = st.session_state["results_df"]
 
     # Convert to CSV
     csv_data = df.write_csv()
 
     # Download button
     st.download_button(
-        label="Download as CSV",
+        label="Download Similar Cases",
         data=csv_data,
         file_name="cases.csv",
+        mime="text/csv"
+    )
+
+    if df_cited != "":
+        st.download_button(
+        label="Download Cited Cases",
+        data=csv_data,
+        file_name="cited_cases.csv",
         mime="text/csv"
     )
 
