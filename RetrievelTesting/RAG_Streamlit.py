@@ -89,6 +89,9 @@ if st.button("Run"):
     # Retrieve similar cases using the provided query
     df_raw = retriever.search_similar_cases(query_text, top_k=num_docs)
 
+    # Convert to CSV
+    csv_data = df_raw.write_csv()
+
     df = df_raw.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(num_docs, by = "score")
 
     # Store results in session state so they persist across reruns.
@@ -103,9 +106,6 @@ if st.button("Run"):
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
     df = st.session_state["results_df"]
-
-    # Convert to CSV
-    csv_data = df_raw.write_csv()
 
     # Download button
     st.sidebar.download_button(
