@@ -42,5 +42,7 @@ class Retriever:
             df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
             
         return df
+    
+    # TODO: Write retrieve cited cases
 
 #df_cited = pl.from_pandas(session.execute_read(query_get_citation, df["Case"].to_list())).top_k(top_k, by = "CasePageRank")

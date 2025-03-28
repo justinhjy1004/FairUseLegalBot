@@ -2,6 +2,7 @@ import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change
 from evaluator import fair_use_relation_chain
+import polars as pl
 
 @st.cache_data
 def evaluate_case(summary, dispute):
@@ -86,9 +87,12 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df = retriever.search_similar_cases(query_text, top_k=num_docs)
+    df_raw = retriever.search_similar_cases(query_text, top_k=num_docs)
+
+    df = df_raw.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(num_docs, by = "score")
+
     # Store results in session state so they persist across reruns.
-    st.session_state["results_df"] = (df)
+    st.session_state["results_df"] = df
 
     # Initialize a toggle state for each document to control the expander display.
     for row in df.iter_rows(named = True):
@@ -101,7 +105,7 @@ if "results_df" in st.session_state:
     df = st.session_state["results_df"]
 
     # Convert to CSV
-    csv_data = df.write_csv()
+    csv_data = df_raw.write_csv()
 
     # Download button
     st.sidebar.download_button(
