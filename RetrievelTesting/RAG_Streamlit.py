@@ -86,9 +86,9 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df = retriever.search_similar_cases(query_text, top_k=num_docs, include_citation=include_citation)
+    df, df_cited = retriever.search_similar_cases(query_text, top_k=num_docs, include_citation=include_citation)
     # Store results in session state so they persist across reruns.
-    st.session_state["results_df"] = df
+    st.session_state["results_df"] = df, df_cited
 
     # Initialize a toggle state for each document to control the expander display.
     for row in df.iter_rows(named = True):
