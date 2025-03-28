@@ -86,7 +86,7 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df = retriever.search_similar_cases(query_text, top_k=num_docs)
+    df = retriever.search_similar_cases(query_text, top_k=num_docs, include_citation=include_citation)
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
@@ -99,6 +99,18 @@ if st.button("Run"):
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
     df = st.session_state["results_df"]
+
+    # Convert to CSV
+    csv_data = df.write_csv()
+
+    # Download button
+    st.download_button(
+        label="Download as CSV",
+        data=csv_data,
+        file_name="cases.csv",
+        mime="text/csv"
+    )
+
     st.write("Retrieved Documents:")
 
     # For each retrieved document, create a vertical button.

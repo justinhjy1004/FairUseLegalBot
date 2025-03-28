@@ -33,7 +33,7 @@ class Retriever:
         self.embedding_model = embedding_model
         self.driver = driver
 
-    def search_similar_cases(self, text, top_k, embedder=gemini_embedder, include_citation = False):
+    def search_similar_cases(self, text, top_k, embedder=gemini_embedder, include_citation = False, similarity_weight = 0, citation_weight = 0, court_weight = 0):
 
         with driver.session() as session:
 
