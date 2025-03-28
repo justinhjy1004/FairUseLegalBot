@@ -1,9 +1,8 @@
 # Copyright Fair Use Legal Bot
 
-### Build DB
-1. Get the 28 cases from Alex
-1. Get reprocess and upload the corrected legal opinions
-1. Extract parts of cases
-1. Chunk parts of cases
-1. Embed cases
-1. Set up basic RAG Functionality
+### Retriever TODO
+
+1. Get weighting of the three factors done
+2. Implement the Citation part, figure out how to "merge them too"
+3. Get "upload PDF" function, and run pytesseract with it
+4. Get retriever to do HYDE style things 

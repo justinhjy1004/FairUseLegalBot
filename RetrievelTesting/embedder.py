@@ -33,14 +33,20 @@ class Retriever:
         self.embedding_model = embedding_model
         self.driver = driver
 
-    def search_similar_cases(self, text, top_k, embedder=gemini_embedder):
+    def search_similar_cases(self, text, top_k, similarity_weight, court_weight, case_weight, embedder=gemini_embedder,):
 
         with driver.session() as session:
 
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
 
-            #df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
-            
+            df = df.filter( pl.col("OpinionType") != "040dissent" ).with_columns(
+                (pl.col("TextSimilarity") - pl.col("TextSimilarity").min())/((pl.col("TextSimilarity").max() - pl.col("TextSimilarity").min())),
+                (pl.col("CasePageRank") - pl.col("CasePageRank").min())/((pl.col("CasePageRank").max() - pl.col("CasePageRank").min())),
+                (pl.col("CourtPageRank") - pl.col("CourtPageRank").min())/((pl.col("CourtPageRank").max() - pl.col("CourtPageRank").min()))
+            ).with_columns(
+                pl.struct(["TextSimilarity", "CasePageRank", "CourtPageRank"]).map_elements(lambda x: similarity_weight*x["TextSimilarity"] + court_weight*x["CourtPageRank"] + case_weight*x["CasePageRank"]).alias("FinalScore")
+            ).group_by(["Case", "FiledDate", "CourtName"]).max().sort("FinalScore", descending = True).top_k(top_k, by = "FinalScore")
+        
         return df
     
     # TODO: Write retrieve cited cases
