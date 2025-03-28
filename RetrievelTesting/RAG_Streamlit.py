@@ -44,6 +44,7 @@ st.sidebar.slider(
     key="similarity",
     on_change=on_similarity_change,
 )
+
 st.sidebar.slider(
     "Citation Weight",
     min_value=0.0,
@@ -86,6 +87,8 @@ query_text = st.text_area("Enter your case description", height=150)
 
 # Run button to trigger the retrieval process
 if st.button("Run"):
+
+    print(st.session_state.similarity)
     # Retrieve similar cases using the provided query
     df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight= st.session_state.court_stats, case_weight= st.session_state.citation,top_k=num_docs)
 
@@ -100,6 +103,7 @@ if st.button("Run"):
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
+
     df = st.session_state["results_df"]
 
     # Download button
