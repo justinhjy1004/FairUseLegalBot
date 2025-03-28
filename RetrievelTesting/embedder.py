@@ -3,7 +3,7 @@ from neo4j import GraphDatabase
 from typing import List
 import polars as pl
 from google import genai
-from query import query_search_by_similarity
+from query import query_search_by_similarity, query_get_citation
 
 ##===================================
 ## Initialize Database and Embedder
@@ -33,12 +33,16 @@ class Retriever:
         self.embedding_model = embedding_model
         self.driver = driver
 
-    def search_similar_cases(self, text, top_k,embedder=gemini_embedder):
+    def search_similar_cases(self, text, top_k, embedder=gemini_embedder, include_citation = False):
 
         with driver.session() as session:
+
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
-            
+
             df = df.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(top_k, by = "score")
+
+            if include_citation:
+                df_cited = pl.from_pandas(session.execute_read(query_get_citation, df["Case"].to_list())).top_k(top_k, by = "CasePageRank")
 
         return df
 

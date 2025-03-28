@@ -60,6 +60,8 @@ st.sidebar.slider(
     on_change=on_court_stats_change,
 )
 
+include_citation = st.sidebar.st.checkbox("Include Citation")
+
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
 
@@ -84,7 +86,7 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df = retriever.search_similar_cases(query_text, top_k=num_docs)
+    df, _ = retriever.search_similar_cases(query_text, top_k=num_docs)
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
