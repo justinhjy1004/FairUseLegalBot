@@ -7,7 +7,7 @@ def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
         YIELD node, score
         MATCH (node)-[:FROM]-()-[:OF]-(o:Opinion)-[:HAS_OPINION]-(c:Case)-[d:DECIDED_IN]-(court:Court)
         WHERE d.Status IS NULL
-        RETURN DISTINCT c.WestLawCaseName AS Case, c.FiledDate AS FiledDate, score AS TextSimilarity, court.Name AS CourtName, o.Summary AS Summary, c.pagerank AS CasePageRank, court.pagerank AS CourtPageRank
+        RETURN DISTINCT c.WestLawCaseName AS Case, c.FiledDate AS FiledDate, score AS TextSimilarity, court.Name AS CourtName, o.Summary AS Summary, c.pagerank AS CasePageRank, court.pagerank AS CourtPageRank, o.Type AS OpinionType
         ORDER BY score DESC
     """
 

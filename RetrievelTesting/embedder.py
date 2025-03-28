@@ -39,7 +39,7 @@ class Retriever:
 
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
 
-            df = df.with_columns(
+            df = df.filter( pl.col("OpinionType") != "040dissent" ).with_columns(
                 (pl.col("TextSimilarity") - pl.col("TextSimilarity").min())/((pl.col("TextSimilarity").max() - pl.col("TextSimilarity").min())),
                 (pl.col("CasePageRank") - pl.col("CasePageRank").min())/((pl.col("CasePageRank").max() - pl.col("CasePageRank").min())),
                 (pl.col("CourtPageRank") - pl.col("CourtPageRank").min())/((pl.col("CourtPageRank").max() - pl.col("CourtPageRank").min()))
