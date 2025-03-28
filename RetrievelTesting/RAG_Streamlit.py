@@ -86,9 +86,9 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df, df_cited = retriever.search_similar_cases(query_text, top_k=num_docs, include_citation=include_citation)
+    df = retriever.search_similar_cases(query_text, top_k=num_docs)
     # Store results in session state so they persist across reruns.
-    st.session_state["results_df"] = df, df_cited
+    st.session_state["results_df"] = (df)
 
     # Initialize a toggle state for each document to control the expander display.
     for row in df.iter_rows(named = True):
@@ -98,24 +98,16 @@ if st.button("Run"):
 
 # If we have retrieval results stored, display them.
 if "results_df" in st.session_state:
-    df, df_cited = st.session_state["results_df"]
+    df = st.session_state["results_df"]
 
     # Convert to CSV
     csv_data = df.write_csv()
 
     # Download button
-    st.download_button(
+    st.sidebar.download_button(
         label="Download Similar Cases",
         data=csv_data,
         file_name="cases.csv",
-        mime="text/csv"
-    )
-
-    if df_cited != "":
-        st.download_button(
-        label="Download Cited Cases",
-        data=csv_data,
-        file_name="cited_cases.csv",
         mime="text/csv"
     )
 
