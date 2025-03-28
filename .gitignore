@@ -1,6 +1,12 @@
 # Specific Files
 
 BuildingDB/Cases/Westlaw/
+BuildingDB/Cases/ManuallyScrapedCases/
+BuildingDB/Cases/IncompleteOpinions/
+
+
+
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
