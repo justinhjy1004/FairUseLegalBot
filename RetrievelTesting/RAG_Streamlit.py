@@ -90,7 +90,7 @@ if st.button("Run"):
     df_raw = retriever.search_similar_cases(query_text, top_k=num_docs)
 
     # Convert to CSV
-    csv_data = df_raw.write_csv()
+    st.session_state["csv_data"] = df_raw.write_csv()
 
     df = df_raw.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(num_docs, by = "score")
 
@@ -110,7 +110,7 @@ if "results_df" in st.session_state:
     # Download button
     st.sidebar.download_button(
         label="Download Similar Cases",
-        data=csv_data,
+        data=st.session_state["csv_data"],
         file_name="cases.csv",
         mime="text/csv"
     )
