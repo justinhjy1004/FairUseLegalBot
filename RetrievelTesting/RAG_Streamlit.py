@@ -87,12 +87,7 @@ query_text = st.text_area("Enter your case description", height=150)
 # Run button to trigger the retrieval process
 if st.button("Run"):
     # Retrieve similar cases using the provided query
-    df_raw = retriever.search_similar_cases(query_text, top_k=num_docs)
-
-    # Convert to CSV
-    st.session_state["csv_data"] = df_raw.write_csv()
-
-    df = df_raw.group_by(["Case", "FiledDate", "CourtName"]).max().sort("score", descending = True).top_k(num_docs, by = "score")
+    df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight= st.session_state.court_stats, case_weight= st.session_state.citation,top_k=num_docs)
 
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
@@ -109,8 +104,8 @@ if "results_df" in st.session_state:
 
     # Download button
     st.sidebar.download_button(
-        label="Download Similar Cases",
-        data=st.session_state["csv_data"],
+        label="Download Cases",
+        data=df.write_csv(),
         file_name="cases.csv",
         mime="text/csv"
     )
