@@ -80,7 +80,7 @@ if st.button("Run"):
     # Retrieve similar cases using the provided query
     df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight=st.session_state.court_stats, case_weight=st.session_state.citation, top_k=num_docs)
 
-    df_cite = retriever.get_cited_cases(df["Case"],top_k=num_citation)
+    df_cite = retriever.get_cited_cases(df["Case"].to_list(),top_k=num_citation)
 
     df = df.select(["Case", "CourtName", "Summary"])
     df_cite = df_cite.select(["Case", "CourtName", "Summary"])
