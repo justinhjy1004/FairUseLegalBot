@@ -82,11 +82,19 @@ if st.button("Run"):
 
     df_cite = retriever.get_cited_cases(df["Case"].to_list(),top_k=num_citation)
 
-    df = df.select(["Case", "Summary"])
-    df_cite = df_cite.select(["Case", "Summary"])
+    df = df.select(["Case", "CourtName", "Summary"])
+    df_cite = df_cite.select(["Case", "CourtName", "Summary"])
 
     df = pl.concat([df, df_cite], how = "vertical").unique()
 
+    st.sidebar.download_button(
+        label="Download CSV",
+        data=df.write_csv(),
+        file_name="data.csv",
+        mime="text/csv",
+        icon=":material/download:",
+    )
+    
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
@@ -124,6 +132,7 @@ if "results_df" in st.session_state:
 
         if st.session_state.get(f"show_summary_{case_name}", False):
             with st.expander(f"LLM Summary of {case_name}", expanded=True):
+                st.write(row["CourtName"])
                 st.write(row["Summary"])
 
         # For the Evaluation section:
