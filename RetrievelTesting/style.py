@@ -21,6 +21,6 @@ def apply_custom_file_uploader_style():
     """
     st.markdown(custom_css, unsafe_allow_html=True)
 
-def custom_file_uploader(label="Upload PDF File", key="file-upload"):
-    st.markdown(f'<label for="{key}" class="custom-upload-btn">{label}</label>', unsafe_allow_html=True)
-    return st.file_uploader(label, key=key, label_visibility="collapsed", type="pdf", custom_file_uploader = False)
+def custom_file_uploader(label="Upload PDF File"):
+    st.markdown(f'<label class="custom-upload-btn">{label}</label>', unsafe_allow_html=True)
+    return st.file_uploader(label=label, label_visibility="collapsed", type="pdf", custom_file_uploader = False)
