@@ -53,7 +53,6 @@ st.sidebar.slider(
 
 include_citation = st.sidebar.checkbox("Include Citation")
 
-
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
 
@@ -75,7 +74,7 @@ st.title("Retrieval Testing Application")
 # Input text area (query describing a case)
 query_text = st.text_area("Enter your case description", height=150)
 
-uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf")
+uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf", accept_multiple_files = False)
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
 
