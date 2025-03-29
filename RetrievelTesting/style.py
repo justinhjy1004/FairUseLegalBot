@@ -23,4 +23,4 @@ def apply_custom_file_uploader_style():
 
 def custom_file_uploader(label="Upload PDF File"):
     st.markdown(f'<label class="custom-upload-btn">{label}</label>', unsafe_allow_html=True)
-    return st.file_uploader(label=label, label_visibility="collapsed", type="pdf", custom_file_uploader = False)
+    return st.file_uploader(label=label, label_visibility="collapsed", type="pdf", accept_multiple_files = False)
