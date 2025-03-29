@@ -85,7 +85,8 @@ if st.button("Run"):
     df = df.select(["Case", "CourtName", "Summary"])
     df_cite = df_cite.select(["Case", "CourtName", "Summary"])
 
-    df = pl.concat([df, df_cite], how = "vertical")
+    df = pl.concat([df, df_cite], how = "vertical").unique()
+    
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
