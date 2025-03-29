@@ -60,3 +60,18 @@ def close_all():
     for key in st.session_state.keys():
         if key.startswith("show_summary_") or key.startswith("show_eval_"):
             st.session_state[key] = False
+
+
+def validate_numeric_input(input):
+    # Validate numeric input; if invalid, default to 1.
+    try:
+        num_docs = int(input)
+        if num_docs < 0:
+            st.sidebar.error("Please enter a a positive number.")
+            return 1
+
+        return num_docs
+    
+    except ValueError:
+        st.sidebar.error("Please enter a valid number.")
+        return 1

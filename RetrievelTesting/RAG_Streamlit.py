@@ -1,6 +1,6 @@
 import streamlit as st
 from embedder import Retriever
-from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all
+from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all, validate_numeric_input
 from evaluator import evaluate_case
 
 ## Initialize Retriever
@@ -51,20 +51,15 @@ st.sidebar.slider(
     on_change=on_court_stats_change,
 )
 
-include_citation = st.sidebar.checkbox("Include Citation")
+include_citation =  st.sidebar.text_input("Enter number of documents to retrieve", value="10")
 
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
+num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", value="0")
 
 # Validate numeric input; if invalid, default to 1.
-try:
-    num_docs = int(num_docs_input)
-    if num_docs < 1:
-        st.sidebar.error("Please enter a number greater than or equal to 1.")
-        num_docs = 1
-except ValueError:
-    st.sidebar.error("Please enter a valid number.")
-    num_docs = 1
+num_docs = validate_numeric_input(num_docs_input)
+num_citation = validate_numeric_input(num_citation)
 
 # ---------------------------
 # Main Page
@@ -137,3 +132,5 @@ if "results_df" in st.session_state:
         if st.session_state.get(f"show_eval_{case_name}", False):
             with st.expander(f"LLM Evaluation of Current Dispute", expanded=True):
                 st.write(evaluate_case(row["Summary"], query_text))
+
+    

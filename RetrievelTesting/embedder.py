@@ -33,7 +33,7 @@ class Retriever:
         self.embedding_model = embedding_model
         self.driver = driver
 
-    def search_similar_cases(self, text, top_k, similarity_weight, court_weight, case_weight, embedder=gemini_embedder,):
+    def search_similar_cases(self, text, top_k, similarity_weight, court_weight, case_weight, embedder=gemini_embedder):
 
         with driver.session() as session:
 
@@ -50,5 +50,10 @@ class Retriever:
         return df
     
     # TODO: Write retrieve cited cases
+    def get_cited_cases(self, cases, top_k):
 
-#df_cited = pl.from_pandas(session.execute_read(query_get_citation, df["Case"].to_list())).top_k(top_k, by = "CasePageRank")
+        with driver.session() as session:
+
+            df_cited = pl.from_pandas(session.execute_read(query_get_citation, cases)).top_k(top_k, by = "CasePageRank")
+
+            return df_cited
