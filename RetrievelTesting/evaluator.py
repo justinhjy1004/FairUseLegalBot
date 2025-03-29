@@ -1,3 +1,4 @@
+import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 import os
@@ -22,3 +23,13 @@ fair_use_relation_prompt = ChatPromptTemplate.from_messages(
 )
 
 fair_use_relation_chain = fair_use_relation_prompt | llm
+
+
+@st.cache_data
+def evaluate_case(summary, dispute):
+    evaluation = fair_use_relation_chain.invoke({
+        "summary": summary,
+        "dispute": dispute
+    })
+
+    return evaluation.content

@@ -1,4 +1,6 @@
 import streamlit as st
+import pytesseract
+from pdf2image import convert_from_path
 
 # ---------------------------
 # Callback Functions
@@ -44,3 +46,20 @@ def on_court_stats_change():
     else:
         st.session_state.similarity = old_sim / old_sum * remaining
         st.session_state.citation = old_cit / old_sum * remaining
+
+def pdf_to_text(pdf_path, output_txt=None, lang='eng'):
+    text = ""
+    
+    # Convert PDF pages to images
+    images = convert_from_path(pdf_path)
+
+    for i, img in enumerate(images):
+        page_text = pytesseract.image_to_string(img, lang=lang)
+        text += f"\n--- Page {i+1} ---\n{page_text}\n"
+
+    # Save to file if output path is provided
+    if output_txt:
+        with open(output_txt, "w", encoding="utf-8") as f:
+            f.write(text)
+
+    return text

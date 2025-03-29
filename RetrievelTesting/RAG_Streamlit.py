@@ -1,18 +1,7 @@
 import streamlit as st
 from embedder import Retriever
-from util import on_similarity_change, on_citation_change, on_court_stats_change
-from evaluator import fair_use_relation_chain
-import polars as pl
-
-@st.cache_data
-def evaluate_case(summary, dispute):
-    evaluation = fair_use_relation_chain.invoke({
-        "summary": summary,
-        "dispute": dispute
-    })
-
-    return evaluation.content
-
+from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text
+from evaluator import evaluate_case
 
 ## Initialize Retriever
 
@@ -64,6 +53,7 @@ st.sidebar.slider(
 
 include_citation = st.sidebar.checkbox("Include Citation")
 
+
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", value="10")
 
@@ -84,6 +74,10 @@ st.title("Retrieval Testing Application")
 
 # Input text area (query describing a case)
 query_text = st.text_area("Enter your case description", height=150)
+
+uploaded_file = st.file_uploader('Choose your .pdf file', type="pdf")
+if uploaded_file is not None:
+    query_text = pdf_to_text(uploaded_file)
 
 # Run button to trigger the retrieval process
 if st.button("Run"):
