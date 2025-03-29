@@ -17,9 +17,10 @@ def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
 def query_get_citation(tx, cases):
 
     query = """
-        MATCH (c:Case)-[:CITED]->(cited:Case)-[:HAS_OPINION]-(o:Opinion)
-        WHERE c.WestLawCaseName IN $cases
-        RETURN DISTINCT cited.WestLawCaseName AS Case, cited.FiledDate AS FiledDate, cited.pagerank AS CasePageRank, o.Summary AS Summary
+        MATCH (c:Case)-[:CITED]->(cited:Case)-[:HAS_OPINION]-(o:Opinion),
+        (cited)-[d:DECIDED_IN]-(court:Court)
+        WHERE d.Status IS NULL AND c.WestLawCaseName IN $cases
+        RETURN DISTINCT cited.WestLawCaseName AS Case, cited.FiledDate AS FiledDate, cited.pagerank AS CasePageRank, o.Summary AS Summary, o.Type AS OpinionType, court.Name AS CourtName
         ORDER BY CasePageRank DESC
     """
 

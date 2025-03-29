@@ -54,6 +54,6 @@ class Retriever:
 
         with driver.session() as session:
 
-            df_cited = pl.from_pandas(session.execute_read(query_get_citation, cases)).top_k(top_k, by = "CasePageRank")
+            df_cited = pl.from_pandas(session.execute_read(query_get_citation, cases)).filter( pl.col("OpinionType") != "040dissent" ).top_k(top_k, by = "CasePageRank")
 
             return df_cited

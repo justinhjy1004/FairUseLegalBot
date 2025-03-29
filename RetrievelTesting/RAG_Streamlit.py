@@ -2,6 +2,7 @@ import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all, validate_numeric_input
 from evaluator import evaluate_case
+import polars as pl
 
 ## Initialize Retriever
 
@@ -77,8 +78,14 @@ if uploaded_file is not None:
 if st.button("Run"):
     
     # Retrieve similar cases using the provided query
-    df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight= st.session_state.court_stats, case_weight= st.session_state.citation,top_k=num_docs)
+    df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight=st.session_state.court_stats, case_weight=st.session_state.citation, top_k=num_docs)
 
+    df_cite = retriever.get_cited_cases(df["Case"],top_k=num_citation)
+
+    df = df.select(["Case", "CourtName", "Summary"])
+    df_cite = df_cite.select(["Case", "CourtName", "Summary"])
+
+    df = pl.concat([df, df_cite], how = "vertical")
     # Store results in session state so they persist across reruns.
     st.session_state["results_df"] = df
 
