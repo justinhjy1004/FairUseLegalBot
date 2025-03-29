@@ -107,7 +107,7 @@ if "results_df" in st.session_state:
 
     # Download button
     st.sidebar.download_button(
-        label="Download Cases",
+        label="Download Raw Cases",
         data=df.write_csv(),
         file_name="cases.csv",
         mime="text/csv"
