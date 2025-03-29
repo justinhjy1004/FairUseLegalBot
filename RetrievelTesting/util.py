@@ -47,9 +47,16 @@ def on_court_stats_change():
         st.session_state.citation = old_cit / old_sum * remaining
 
 def pdf_to_text(pdf_path):
-    
+
     doc = fitz.open(stream=pdf_path.read(), filetype="pdf")
     text = ""
     for page in doc:
         text += page.get_text()
     return text
+
+
+# Define a helper function to close all summary/evaluation sections
+def close_all():
+    for key in st.session_state.keys():
+        if key.startswith("show_summary_") or key.startswith("show_eval_"):
+            st.session_state[key] = False
