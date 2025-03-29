@@ -2,7 +2,6 @@ import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all
 from evaluator import evaluate_case
-from style import custom_file_uploader
 
 ## Initialize Retriever
 
@@ -75,7 +74,7 @@ st.title("Retrieval Testing Application")
 # Input text area (query describing a case)
 query_text = st.text_area("Enter your case description", height=75)
 
-uploaded_file = custom_file_uploader()
+uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="collapsed", type="pdf", accept_multiple_files = False)
 
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
