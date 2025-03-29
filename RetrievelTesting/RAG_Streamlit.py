@@ -53,7 +53,8 @@ st.sidebar.slider(
 
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", key='num_doc',value="10")
-num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", key='citation',value="0")
+
+num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", key='num_citation',value="0")
 
 # Validate numeric input; if invalid, default to 1.
 num_docs = validate_numeric_input(num_docs_input)
