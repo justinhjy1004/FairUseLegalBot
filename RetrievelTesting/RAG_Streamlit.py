@@ -85,7 +85,7 @@ if st.button("Run"):
     df = df.select(["Case", "CourtName", "Summary"])
     df_cite = df_cite.select(["Case", "CourtName", "Summary"])
 
-    df = pl.concat([df, df_cite], how = "vertical").unique()
+    df = pl.concat([df, df_cite], how = "vertical").unique(["Case", "CourtName"])
 
     st.sidebar.download_button(
         label="Download CSV",
