@@ -48,7 +48,7 @@ def evaluate_case(summary, dispute):
 
 @st.cache_data
 def rewrite_four_factor_test(dispute):
-    rewrite = rewrite_in_context_of_fair_use.invoke({
+    rewrite = rewrite_in_context_of_fair_use_chain.invoke({
         "dispute": dispute
     })
 
