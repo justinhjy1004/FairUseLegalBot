@@ -55,7 +55,7 @@ st.sidebar.slider(
 st.sidebar.subheader("Document Retrieval Count")
 num_docs_input = st.sidebar.text_input("Enter number of documents to retrieve", key='num_doc',value="10")
 
-num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", key='num_citation',value="0")
+num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", key='num_citation',value="3")
 
 # Validate numeric input; if invalid, default to 1.
 num_docs = validate_numeric_input(num_docs_input)
@@ -75,6 +75,9 @@ uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="coll
 
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
+
+if len(query_text) < 20:
+    st.error("Please provide more description to your dispute.")
 
 # Run button to trigger the retrieval process
 if st.button("Run"):
