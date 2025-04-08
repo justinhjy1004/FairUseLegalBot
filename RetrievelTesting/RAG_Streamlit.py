@@ -61,7 +61,7 @@ num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", k
 num_docs = validate_numeric_input(num_docs_input)
 num_citation = validate_numeric_input(num_citation)
 
-rewrite_input = st.checkbox("Rewrite Dispute?")
+rewrite_input = st.sidebar.checkbox("Rewrite Dispute?")
 
 # ---------------------------
 # Main Page
@@ -76,11 +76,11 @@ uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="coll
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
 
-if rewrite_input:
-    query_text = rewrite_four_factor_test(query_text)
-
 # Run button to trigger the retrieval process
 if st.button("Run"):
+
+    if rewrite_input:
+        query_text = rewrite_four_factor_test(query_text)
     
     # Retrieve similar cases using the provided query
     df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight=st.session_state.court_stats, case_weight=st.session_state.citation, top_k=num_docs)
