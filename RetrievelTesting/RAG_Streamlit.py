@@ -1,7 +1,7 @@
 import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all, validate_numeric_input
-from evaluator import evaluate_case, rewrite_four_factor_test
+from evaluator import evaluate_case, rewrite_four_factor_test, analyze_all_cases
 import polars as pl
 
 ## Initialize Retriever
@@ -162,4 +162,41 @@ with tab1:
 
         
 with tab2:
-    st.write("TODO")
+
+    if st.button("Analyze Dispute"):
+
+        with st.spinner("This might take sometime...", show_time=True):
+
+            if rewrite_input:
+                query_text = rewrite_four_factor_test(query_text)
+        
+            # Retrieve similar cases using the provided query
+            df = retriever.search_similar_cases(query_text, similarity_weight=st.session_state.similarity, court_weight=st.session_state.court_stats, case_weight=st.session_state.citation, top_k=num_docs)
+
+            df_cite = retriever.get_cited_cases(df["Case"].to_list(),top_k=num_citation)
+
+            df = df.select(["Case", "CourtName", "Summary"])
+            df_cite = df_cite.select(["Case", "CourtName", "Summary"])
+
+            df = pl.concat([df_cite, df], how = "vertical").unique(["Case", "CourtName"])
+
+            st.sidebar.download_button(
+                label="Download CSV",
+                data=df.write_csv(),
+                file_name="data.csv",
+                mime="text/csv",
+                icon=":material/download:",
+            )
+            
+            # Store results in session state so they persist across reruns.
+            st.session_state["results_df"] = df
+
+            # Initialize a toggle state for each document to control the expander display.
+            for row in df.iter_rows(named = True):
+                case_name = row["Case"]
+                st.session_state[f"show_summary_{case_name}"] = False
+                st.session_state[f"show_eval_{case_name}"] = False
+
+            analysis = analyze_all_cases(df, query_text)
+
+        st.write(analysis)
