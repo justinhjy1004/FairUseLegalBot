@@ -75,3 +75,46 @@ def validate_numeric_input(input):
     except ValueError:
         st.sidebar.error("Please enter a valid number.")
         return 1
+    
+
+evaluation_template = """
+
+**Dispute Summary:**
+
+[Insert Dispute Summary]
+
+---
+**Factor 1: Purpose and Character of the Use**  
+- **For Fair Use:**  
+  [Insert supportive arguments, including whether the use is transformative, nonprofit, or educational. Include case law.]  
+- **Against Fair Use:**  
+  [Insert counterarguments, such as commercial nature or lack of transformation. Include case law.]
+
+---
+**Factor 2: Nature of the Copyrighted Work**  
+- **For Fair Use:**  
+  [Insert supportive arguments, e.g., factual vs. creative work, published status. Include case law.]  
+- **Against Fair Use:**  
+  [Insert counterarguments, such as if the work is highly creative or unpublished. Include case law.]
+
+---
+**Factor 3: Amount and Substantiality of the Portion Used**  
+- **For Fair Use:**  
+  [Discuss whether only a limited or necessary portion was used. Include case law.]  
+- **Against Fair Use:**  
+  [Discuss if the “heart” of the work or a substantial portion was taken. Include case law.]
+
+---
+**Factor 4: Effect of the Use Upon the Market**  
+- **For Fair Use:**  
+  [Explain why there is no significant harm to the market or potential licensing. Include case law.]  
+- **Against Fair Use:**  
+  [Explain how the use could harm the market or act as a substitute. Include case law.]
+
+---
+**Conclusion:**  
+Weigh all four factors and conclude whether the use likely qualifies as fair use, does not qualify, or falls into a gray area. Provide a reasoned summary of the analysis.
+
+Limit to a maximum of 1000 words
+
+"""
