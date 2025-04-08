@@ -1,7 +1,7 @@
 import streamlit as st
 from embedder import Retriever
 from util import on_similarity_change, on_citation_change, on_court_stats_change, pdf_to_text, close_all, validate_numeric_input
-from evaluator import evaluate_case
+from evaluator import evaluate_case, rewrite_four_factor_test
 import polars as pl
 
 ## Initialize Retriever
@@ -61,6 +61,8 @@ num_citation =  st.sidebar.text_input("Enter number of citations to retrieve", k
 num_docs = validate_numeric_input(num_docs_input)
 num_citation = validate_numeric_input(num_citation)
 
+rewrite_input = st.checkbox("Rewrite Dispute?")
+
 # ---------------------------
 # Main Page
 # ---------------------------
@@ -74,6 +76,9 @@ uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="coll
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
 
+if rewrite_input:
+    query_text = rewrite_four_factor_test(query_text)
+
 # Run button to trigger the retrieval process
 if st.button("Run"):
     
@@ -85,7 +90,7 @@ if st.button("Run"):
     df = df.select(["Case", "CourtName", "Summary"])
     df_cite = df_cite.select(["Case", "CourtName", "Summary"])
 
-    df = pl.concat([df, df_cite], how = "vertical").unique(["Case", "CourtName"])
+    df = pl.concat([df_cite, df], how = "vertical").unique(["Case", "CourtName"])
 
     st.sidebar.download_button(
         label="Download CSV",

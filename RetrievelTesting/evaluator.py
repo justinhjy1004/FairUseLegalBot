@@ -24,6 +24,18 @@ fair_use_relation_prompt = ChatPromptTemplate.from_messages(
 
 fair_use_relation_chain = fair_use_relation_prompt | llm
 
+rewrite_in_context_of_fair_use = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            """Rewrite the following copyright dispute in the context of the fair use four-factor test. For each of the four factors, provide a brief analysis relevant to the facts of the dispute, using neutral language suitable for legal or academic discussion. The four factors are: (1) the purpose and character of the use; (2) the nature of the copyrighted work; (3) the amount and substantiality of the portion used; and (4) the effect of the use upon the potential market for or value of the copyrighted work. Clearly distinguish which parts of the dispute relate to each factor."""
+
+        ),
+        ("human", "Dispute: {dispute}"),
+    ]
+)
+
+rewrite_in_context_of_fair_use_chain = rewrite_in_context_of_fair_use | llm
 
 @st.cache_data
 def evaluate_case(summary, dispute):
@@ -33,3 +45,11 @@ def evaluate_case(summary, dispute):
     })
 
     return evaluation.content
+
+@st.cache_data
+def rewrite_four_factor_test(dispute):
+    rewrite = rewrite_in_context_of_fair_use.invoke({
+        "dispute": dispute
+    })
+
+    return rewrite.content
