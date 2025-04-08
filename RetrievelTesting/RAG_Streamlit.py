@@ -76,15 +76,16 @@ uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="coll
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)
 
-if len(query_text) < 20:
-    st.error("Please provide more description to your dispute.")
-
 tab1, tab2 = st.tabs(["Retrieval", "Full Analysis"])
 
 with tab1:
 
     # Run button to trigger the retrieval process
     if st.button("Run"):
+
+        if len(query_text) < 20:
+            st.error("Please provide more description to your dispute.")
+            st.stop()
 
         if rewrite_input:
             query_text = rewrite_four_factor_test(query_text)
@@ -164,6 +165,10 @@ with tab1:
 with tab2:
 
     if st.button("Analyze Dispute"):
+
+        if len(query_text) < 20:
+            st.error("Please provide more description to your dispute.")
+            st.stop()
 
         with st.spinner("This might take sometime...", show_time=True):
 
