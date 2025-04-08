@@ -87,9 +87,11 @@ def analyze_all_cases(cases, dispute):
 
     combined_evaluations = "\n\n".join(evaluations)
 
-    combine_evaluations_use_chain.invoke({
+    analysis = combine_evaluations_use_chain.invoke({
         "evaluation_template": evaluation_template,
         "combined_evaluations": combined_evaluations
     })
+
+    return analysis.content
 
     
