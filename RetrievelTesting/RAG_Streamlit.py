@@ -71,7 +71,7 @@ st.title("Retrieval Testing Application")
 # Input text area (query describing a case)
 query_text = st.text_area("Enter your case description", height=75)
 
-uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="collapsed", type="pdf", accept_multiple_files = False)
+uploaded_file = st.file_uploader(label="Upload PDF File", label_visibility="collapsed", type="pdf", accept_multiple_files = True)
 
 if uploaded_file is not None:
     query_text = pdf_to_text(uploaded_file)

@@ -20,6 +20,8 @@ def on_similarity_change():
         st.session_state.citation = old_citation / old_sum * remaining
         st.session_state.court_stats = old_court / old_sum * remaining
 
+    st.cache_data.clear()
+
 def on_citation_change():
     new_cit = st.session_state.citation
     old_sim = st.session_state.similarity
@@ -32,6 +34,8 @@ def on_citation_change():
     else:
         st.session_state.similarity = old_sim / old_sum * remaining
         st.session_state.court_stats = old_court / old_sum * remaining
+
+    st.cache_data.clear()
 
 def on_court_stats_change():
     new_court = st.session_state.court_stats
@@ -46,13 +50,21 @@ def on_court_stats_change():
         st.session_state.similarity = old_sim / old_sum * remaining
         st.session_state.citation = old_cit / old_sum * remaining
 
-def pdf_to_text(pdf_path):
+    st.cache_data.clear()
 
-    doc = fitz.open(stream=pdf_path.read(), filetype="pdf")
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+def pdf_to_text(pdf_paths):
+
+    full_text = ""
+
+    for pdf_path in pdf_paths:
+      doc = fitz.open(stream=pdf_path.read(), filetype="pdf")
+      text = ""
+      for page in doc:
+          text += page.get_text()
+
+      full_text += text + "\n\n"
+
+    return full_text
 
 
 # Define a helper function to close all summary/evaluation sections
@@ -69,6 +81,8 @@ def validate_numeric_input(input):
         if num_docs < 0:
             st.sidebar.error("Please enter a a positive number.")
             return 1
+        
+        st.cache_data.clear()
 
         return num_docs
     
@@ -113,8 +127,6 @@ evaluation_template = """
 
 ---
 **Conclusion:**  
-Weigh all four factors and conclude whether the use likely qualifies as fair use, does not qualify, or falls into a gray area. Provide a reasoned summary of the analysis.
-
-Limit to a maximum of 1000 words
+Weigh all four factors and conclude whether the use likely qualifies as fair use or does not qualify. Provide a reasoned summary of the analysis.
 
 """
