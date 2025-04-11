@@ -20,6 +20,8 @@ def on_similarity_change():
         st.session_state.citation = old_citation / old_sum * remaining
         st.session_state.court_stats = old_court / old_sum * remaining
 
+    st.cache_data.clear()
+
 def on_citation_change():
     new_cit = st.session_state.citation
     old_sim = st.session_state.similarity
@@ -33,6 +35,8 @@ def on_citation_change():
         st.session_state.similarity = old_sim / old_sum * remaining
         st.session_state.court_stats = old_court / old_sum * remaining
 
+    st.cache_data.clear()
+
 def on_court_stats_change():
     new_court = st.session_state.court_stats
     old_sim = st.session_state.similarity
@@ -45,6 +49,8 @@ def on_court_stats_change():
     else:
         st.session_state.similarity = old_sim / old_sum * remaining
         st.session_state.citation = old_cit / old_sum * remaining
+
+    st.cache_data.clear()
 
 def pdf_to_text(pdf_path):
 
@@ -69,6 +75,8 @@ def validate_numeric_input(input):
         if num_docs < 0:
             st.sidebar.error("Please enter a a positive number.")
             return 1
+        
+        st.cache_data.clear()
 
         return num_docs
     
