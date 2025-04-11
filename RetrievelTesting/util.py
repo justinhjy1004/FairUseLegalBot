@@ -52,13 +52,19 @@ def on_court_stats_change():
 
     st.cache_data.clear()
 
-def pdf_to_text(pdf_path):
+def pdf_to_text(pdf_paths):
 
-    doc = fitz.open(stream=pdf_path.read(), filetype="pdf")
-    text = ""
-    for page in doc:
-        text += page.get_text()
-    return text
+    full_text = ""
+
+    for pdf_path in pdf_paths:
+      doc = fitz.open(stream=pdf_path.read(), filetype="pdf")
+      text = ""
+      for page in doc:
+          text += page.get_text()
+
+      full_text += text + "\n\n"
+
+    return full_text
 
 
 # Define a helper function to close all summary/evaluation sections
@@ -121,8 +127,6 @@ evaluation_template = """
 
 ---
 **Conclusion:**  
-Weigh all four factors and conclude whether the use likely qualifies as fair use, does not qualify, or falls into a gray area. Provide a reasoned summary of the analysis.
-
-Limit to a maximum of 1000 words
+Weigh all four factors and conclude whether the use likely qualifies as fair use or does not qualify. Provide a reasoned summary of the analysis.
 
 """
