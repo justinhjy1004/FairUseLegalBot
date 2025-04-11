@@ -11,7 +11,7 @@ def query_search_by_similarity(tx, query_text, embedding_model, top_k = 5):
         ORDER BY score DESC
     """
 
-    return tx.run(query, top_k = top_k*5, query_embedding = query_embedding).to_df()
+    return tx.run(query, top_k = top_k*200, query_embedding = query_embedding).to_df()
 
 
 def query_get_citation(tx, cases):
