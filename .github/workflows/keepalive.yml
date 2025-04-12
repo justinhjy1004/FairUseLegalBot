@@ -3,19 +3,22 @@ name: Keepalive
 on:
   schedule:
     - cron: '0 */10 * * *'  # Every 10 hours
-  workflow_dispatch:
 
 jobs:
-  keepalive:
+  empty_commit:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
+    - name: Checkout Repository
+      uses: actions/checkout@v2
 
-      - name: Make empty commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit --allow-empty -m "Keepalive commit $(date)"
-          git push
+    - run: git config user.email "justinhjy1004@gmail.com"
+    - run: git config user.name "justinhjy1004"
 
+    - name: Create Empty Commit
+      run: git commit --allow-empty -m "Empty commit"
+
+    - name: Push Empty Commit
+      run: git push origin main  # Change 'main' to your branch name
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
