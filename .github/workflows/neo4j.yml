@@ -1,0 +1,35 @@
+name: Query Neo4j Aura
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs at the top of every hour
+  workflow_dispatch:     # Allows for manual triggering
+
+jobs:
+  queryNeo4j:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Query Neo4j Aura with cURL
+        env:
+          # These environment variables come from your GitHub secrets.
+          AURA_HOSTNAME: ${{ secrets.AURA_HOSTNAME }}
+          AURA_DB_PASSWORD: ${{ secrets.AURA_DB_PASSWORD }}
+        run: |
+          echo "Starting query to Neo4j Aura..."
+          # Run the cURL command.
+          response=$(curl --location --silent --fail "https://$AURA_HOSTNAME/db/neo4j/query/v2" \
+            --user "neo4j:$AURA_DB_PASSWORD" \
+            --header 'Content-Type: application/json' \
+            --header 'Accept: application/json' \
+            --data '{ "statement": "RETURN 1" }')
+          
+          # Check if cURL executed successfully.
+          if [ $? -eq 0 ]; then
+            echo "Query successful:"
+            echo "$response"
+          else
+            echo "Query failed."
+            exit 1
+          fi
+
