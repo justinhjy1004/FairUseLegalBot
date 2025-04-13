@@ -17,6 +17,7 @@ jobs:
           AURA_DB_PASSWORD: ${{ secrets.AURA_DB_PASSWORD }}
         run: |
           echo "Starting query to Neo4j Aura..."
+          echo "$AURA_HOSTNAME"
           # Run the cURL command.
           response=$(curl --location --silent --fail "https://$AURA_HOSTNAME/db/neo4j/query/v2" \
             --user "neo4j:$AURA_DB_PASSWORD" \
