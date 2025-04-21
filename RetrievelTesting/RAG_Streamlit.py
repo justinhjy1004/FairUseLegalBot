@@ -66,7 +66,7 @@ rewrite_input = st.sidebar.checkbox("Rewrite Dispute?")
 # ---------------------------
 # Main Page
 # ---------------------------
-st.title("Copyright Fair Use Bot")
+st.title("Copyright Fair Use")
 
 # Input text area (query describing a case)
 query_text = st.text_area("Enter your case description", height=75)
