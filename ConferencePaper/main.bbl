@@ -1,0 +1,374 @@
+\begin{thebibliography}{32}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\href}[2]{#2}
+\providecommand{\path}[1]{#1}
+\providecommand{\DOIprefix}{doi:}
+\providecommand{\ArXivprefix}{arXiv:}
+\providecommand{\URLprefix}{URL: }
+\providecommand{\Pubmedprefix}{pmid:}
+\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
+\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
+\providecommand{\bibinfo}[2]{#2}
+\ifx\xfnm\relax \def\xfnm[#1]{\unskip,\space#1}\fi
+%Type = Misc
+\bibitem[{{U.S. Congress}(2024{\natexlab{a}})}]{16_DMCA}
+\bibinfo{author}{{U.S. Congress}}, \bibinfo{title}{17 u.s.c. § 512 -
+  limitations on liability relating to material online},
+  \bibinfo{howpublished}{\url{https://www.law.cornell.edu/uscode/text/17/512}},
+  \bibinfo{year}{2024}{\natexlab{a}}. \bibinfo{note}{Retrieved from
+  https://www.law.cornell.edu/uscode/text/17/512}.
+%Type = Misc
+\bibitem[{{U.S. Congress}(2024{\natexlab{b}})}]{15_USC107}
+\bibinfo{author}{{U.S. Congress}}, \bibinfo{title}{17 u.s.c. § 107 -
+  limitations on exclusive rights: Fair use},
+  \bibinfo{howpublished}{\url{https://www.law.cornell.edu/uscode/text/17/107}},
+  \bibinfo{year}{2024}{\natexlab{b}}. \bibinfo{note}{Retrieved from
+  https://www.law.cornell.edu/uscode/text/17/107}.
+%Type = Article
+\bibitem[{Matteson(2018)}]{21a_DMCAAbuse}
+\bibinfo{author}{J.~D. Matteson},
+\newblock \bibinfo{title}{Unfair misuse: How section 512 of the dmca allows
+  abuse of the copyright fair use doctrine and how to fix it},
+\newblock \bibinfo{journal}{Santa Clara high-technology law journal}
+  \bibinfo{volume}{35} (\bibinfo{year}{2018}) \bibinfo{pages}{1}.
+%Type = Article
+\bibitem[{Blythe(2019)}]{21b_DMCAAbuse}
+\bibinfo{author}{S.~M. Blythe},
+\newblock \bibinfo{title}{Freedom of speech and the dmca: Abuse of the
+  notification and takedown process},
+\newblock \bibinfo{journal}{European intellectual property review}
+  \bibinfo{volume}{41} (\bibinfo{year}{2019}) \bibinfo{pages}{70--88}.
+%Type = Inproceedings
+\bibitem[{Brown et~al.(2020)Brown, Mann, Ryder, Subbiah, Kaplan, Dhariwal,
+  Neelakantan, Shyam, Sastry, Askell, Agarwal, Herbert-Voss, Krueger, Henighan,
+  Child, Ramesh, Ziegler, Wu, Winter, Hesse, Chen, Sigler, Litwin, Gray, Chess,
+  Clark, Berner, McCandlish, Radford, Sutskever, and
+  Amodei}]{10_LLMFewShotLearner}
+\bibinfo{author}{T.~B. Brown}, \bibinfo{author}{B.~Mann},
+  \bibinfo{author}{N.~Ryder}, \bibinfo{author}{M.~Subbiah},
+  \bibinfo{author}{J.~Kaplan}, \bibinfo{author}{P.~Dhariwal},
+  \bibinfo{author}{A.~Neelakantan}, \bibinfo{author}{P.~Shyam},
+  \bibinfo{author}{G.~Sastry}, \bibinfo{author}{A.~Askell},
+  \bibinfo{author}{S.~Agarwal}, \bibinfo{author}{A.~Herbert-Voss},
+  \bibinfo{author}{G.~Krueger}, \bibinfo{author}{T.~Henighan},
+  \bibinfo{author}{R.~Child}, \bibinfo{author}{A.~Ramesh},
+  \bibinfo{author}{D.~M. Ziegler}, \bibinfo{author}{J.~Wu},
+  \bibinfo{author}{C.~Winter}, \bibinfo{author}{C.~Hesse},
+  \bibinfo{author}{M.~Chen}, \bibinfo{author}{E.~Sigler},
+  \bibinfo{author}{M.~Litwin}, \bibinfo{author}{S.~Gray},
+  \bibinfo{author}{B.~Chess}, \bibinfo{author}{J.~Clark},
+  \bibinfo{author}{C.~Berner}, \bibinfo{author}{S.~McCandlish},
+  \bibinfo{author}{A.~Radford}, \bibinfo{author}{I.~Sutskever},
+  \bibinfo{author}{D.~Amodei},
+\newblock \bibinfo{title}{Language models are few-shot learners},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 34th International
+  Conference on Neural Information Processing Systems}, NIPS '20,
+  \bibinfo{publisher}{Curran Associates Inc.}, \bibinfo{address}{Red Hook, NY,
+  USA}, \bibinfo{year}{2020}.
+%Type = Article
+\bibitem[{Lai et~al.(2024)Lai, Gan, Wu, Qi, and Yu}]{20_LLMSurvey}
+\bibinfo{author}{J.~Lai}, \bibinfo{author}{W.~Gan}, \bibinfo{author}{J.~Wu},
+  \bibinfo{author}{Z.~Qi}, \bibinfo{author}{P.~S. Yu},
+\newblock \bibinfo{title}{Large language models in law: A survey},
+\newblock \bibinfo{journal}{AI Open} \bibinfo{volume}{5} (\bibinfo{year}{2024})
+  \bibinfo{pages}{181--196}. \URLprefix
+  \url{https://www.sciencedirect.com/science/article/pii/S2666651024000172}.
+  \DOIprefix\doi{https://doi.org/10.1016/j.aiopen.2024.09.002}.
+%Type = Inproceedings
+\bibitem[{Westermann et~al.(2023)Westermann, Meeùs, Godet, Troussel, Tan,
+  Savelka, and Benyekhlef}]{05_BuildingJusticeBot}
+\bibinfo{author}{H.~Westermann}, \bibinfo{author}{S.~Meeùs},
+  \bibinfo{author}{M.~Godet}, \bibinfo{author}{A.~Troussel},
+  \bibinfo{author}{J.~Tan}, \bibinfo{author}{J.~Savelka},
+  \bibinfo{author}{K.~Benyekhlef},
+\newblock \bibinfo{title}{Bridging the gap: Mapping layperson narratives to
+  legal issues with language models},
+\newblock in: \bibinfo{booktitle}{Proceedings of the Sixth Workshop on
+  Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  \bibinfo{publisher}{CEUR Workshop Proceedings}, \bibinfo{address}{Braga,
+  Portugal}, \bibinfo{year}{2023}. \URLprefix
+  \url{https://ceur-ws.org/Vol-3441/}, \bibinfo{note}{available under CC BY 4.0
+  license}.
+%Type = Inproceedings
+\bibitem[{Savelka et~al.(2023)Savelka, Ashley, Gray, Westermann, and
+  Xu}]{06_GPTAnnotateTextualData}
+\bibinfo{author}{J.~Savelka}, \bibinfo{author}{K.~D. Ashley},
+  \bibinfo{author}{M.~A. Gray}, \bibinfo{author}{H.~Westermann},
+  \bibinfo{author}{H.~Xu},
+\newblock \bibinfo{title}{Can gpt-4 support analysis of textual data in tasks
+  requiring highly specialized domain expertise?},
+\newblock in: \bibinfo{booktitle}{Proceedings of the Sixth Workshop on
+  Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  \bibinfo{publisher}{CEUR Workshop Proceedings}, \bibinfo{address}{Braga,
+  Portugal}, \bibinfo{year}{2023}. \URLprefix
+  \url{http://ceur-ws.org/Vol-3441/}, \bibinfo{note}{available under CC BY 4.0
+  license}.
+%Type = Inproceedings
+\bibitem[{Guha et~al.(2023)Guha, Nyarko, Ho, Re, Chilton, Narayana,
+  Chohlas-Wood, Peters, Waldon, Rockmore, Zambrano, Talisman, Hoque, Surani,
+  Fagan, Sarfaty, Dickinson, Porat, Hegland, Wu, Nudell, Niklaus, Nay, Choi,
+  Tobia, Hagan, Ma, Livermore, Rasumov-Rahe, Holzenberger, Kolt, Henderson,
+  Rehaag, Goel, Gao, Williams, Gandhi, Zur, Iyer, and Li}]{22_LegalBench}
+\bibinfo{author}{N.~Guha}, \bibinfo{author}{J.~Nyarko}, \bibinfo{author}{D.~E.
+  Ho}, \bibinfo{author}{C.~Re}, \bibinfo{author}{A.~Chilton},
+  \bibinfo{author}{A.~Narayana}, \bibinfo{author}{A.~Chohlas-Wood},
+  \bibinfo{author}{A.~Peters}, \bibinfo{author}{B.~Waldon},
+  \bibinfo{author}{D.~Rockmore}, \bibinfo{author}{D.~Zambrano},
+  \bibinfo{author}{D.~Talisman}, \bibinfo{author}{E.~Hoque},
+  \bibinfo{author}{F.~Surani}, \bibinfo{author}{F.~Fagan},
+  \bibinfo{author}{G.~Sarfaty}, \bibinfo{author}{G.~M. Dickinson},
+  \bibinfo{author}{H.~Porat}, \bibinfo{author}{J.~Hegland},
+  \bibinfo{author}{J.~Wu}, \bibinfo{author}{J.~Nudell},
+  \bibinfo{author}{J.~Niklaus}, \bibinfo{author}{J.~J. Nay},
+  \bibinfo{author}{J.~H. Choi}, \bibinfo{author}{K.~Tobia},
+  \bibinfo{author}{M.~Hagan}, \bibinfo{author}{M.~Ma},
+  \bibinfo{author}{M.~Livermore}, \bibinfo{author}{N.~Rasumov-Rahe},
+  \bibinfo{author}{N.~Holzenberger}, \bibinfo{author}{N.~Kolt},
+  \bibinfo{author}{P.~Henderson}, \bibinfo{author}{S.~Rehaag},
+  \bibinfo{author}{S.~Goel}, \bibinfo{author}{S.~Gao},
+  \bibinfo{author}{S.~Williams}, \bibinfo{author}{S.~Gandhi},
+  \bibinfo{author}{T.~Zur}, \bibinfo{author}{V.~Iyer}, \bibinfo{author}{Z.~Li},
+\newblock \bibinfo{title}{Legalbench: A collaboratively built benchmark for
+  measuring legal reasoning in large language models},
+\newblock in: \bibinfo{booktitle}{Thirty-seventh Conference on Neural
+  Information Processing Systems Datasets and Benchmarks Track},
+  \bibinfo{year}{2023}. \URLprefix
+  \url{https://openreview.net/forum?id=WqSPQFxFRC}.
+%Type = Article
+\bibitem[{Dahl et~al.(2024)Dahl, Magesh, Suzgun, and
+  Ho}]{04_LegalHallucination}
+\bibinfo{author}{M.~Dahl}, \bibinfo{author}{V.~Magesh},
+  \bibinfo{author}{M.~Suzgun}, \bibinfo{author}{D.~E. Ho},
+\newblock \bibinfo{title}{Large legal fictions: Profiling legal hallucinations
+  in large language models},
+\newblock \bibinfo{journal}{Journal of Legal Analysis} \bibinfo{volume}{16}
+  (\bibinfo{year}{2024}) \bibinfo{pages}{64--93}. \URLprefix
+  \url{https://doi.org/10.1093/jla/laae003}.
+  \DOIprefix\doi{10.1093/jla/laae003}.
+%Type = Misc
+\bibitem[{Magesh et~al.(2024)Magesh, Surani, Dahl, Suzgun, Manning, and
+  Ho}]{04b_HallucinationFree}
+\bibinfo{author}{V.~Magesh}, \bibinfo{author}{F.~Surani},
+  \bibinfo{author}{M.~Dahl}, \bibinfo{author}{M.~Suzgun},
+  \bibinfo{author}{C.~D. Manning}, \bibinfo{author}{D.~E. Ho},
+  \bibinfo{title}{Hallucination-free? assessing the reliability of leading ai
+  legal research tools}, \bibinfo{year}{2024}. \URLprefix
+  \url{https://arxiv.org/abs/2405.20362}.
+  \href{http://arxiv.org/abs/2405.20362}{{\tt arXiv:2405.20362}}.
+%Type = Article
+\bibitem[{Jacobs et~al.(1991)Jacobs, Jordan, Nowlan, and
+  Hinton}]{13_AdaptiveMoE}
+\bibinfo{author}{R.~A. Jacobs}, \bibinfo{author}{M.~I. Jordan},
+  \bibinfo{author}{S.~J. Nowlan}, \bibinfo{author}{G.~E. Hinton},
+\newblock \bibinfo{title}{Adaptive mixtures of local experts},
+\newblock \bibinfo{journal}{Neural Computation} \bibinfo{volume}{3}
+  (\bibinfo{year}{1991}) \bibinfo{pages}{79--87}.
+  \DOIprefix\doi{10.1162/neco.1991.3.1.79}.
+%Type = Misc
+\bibitem[{Gutiérrez et~al.(2025)Gutiérrez, Shu, Qi, Zhou, and
+  Su}]{23_NonParametricRAGContinualLearning}
+\bibinfo{author}{B.~J. Gutiérrez}, \bibinfo{author}{Y.~Shu},
+  \bibinfo{author}{W.~Qi}, \bibinfo{author}{S.~Zhou}, \bibinfo{author}{Y.~Su},
+  \bibinfo{title}{From rag to memory: Non-parametric continual learning for
+  large language models}, \bibinfo{year}{2025}. \URLprefix
+  \url{https://arxiv.org/abs/2502.14802}.
+  \href{http://arxiv.org/abs/2502.14802}{{\tt arXiv:2502.14802}}.
+%Type = Article
+\bibitem[{Pan et~al.(2024)Pan, Luo, Wang, Chen, Wang, and
+  Wu}]{01_UnifyingKGwithLLM}
+\bibinfo{author}{S.~Pan}, \bibinfo{author}{L.~Luo}, \bibinfo{author}{Y.~Wang},
+  \bibinfo{author}{C.~Chen}, \bibinfo{author}{J.~Wang},
+  \bibinfo{author}{X.~Wu},
+\newblock \bibinfo{title}{Unifying large language models and knowledge graphs:
+  A roadmap},
+\newblock \bibinfo{journal}{IEEE Transactions on Knowledge and Data
+  Engineering} \bibinfo{volume}{36} (\bibinfo{year}{2024})
+  \bibinfo{pages}{3580--3599}. \DOIprefix\doi{10.1109/TKDE.2024.3352100}.
+%Type = Inproceedings
+\bibitem[{Chen et~al.(2024{\natexlab{a}})Chen, Zhang, Chen, Zhou, Yu, Yu, Peng,
+  Wang, Roth, and Yu}]{03b_SemanticRepresentationContextual}
+\bibinfo{author}{S.~Chen}, \bibinfo{author}{H.~Zhang},
+  \bibinfo{author}{T.~Chen}, \bibinfo{author}{B.~Zhou},
+  \bibinfo{author}{W.~Yu}, \bibinfo{author}{D.~Yu}, \bibinfo{author}{B.~Peng},
+  \bibinfo{author}{H.~Wang}, \bibinfo{author}{D.~Roth},
+  \bibinfo{author}{D.~Yu},
+\newblock \bibinfo{title}{Sub-sentence encoder: Contrastive learning of
+  propositional semantic representations},
+\newblock in: \bibinfo{editor}{K.~Duh}, \bibinfo{editor}{H.~Gomez},
+  \bibinfo{editor}{S.~Bethard} (Eds.), \bibinfo{booktitle}{Proceedings of the
+  2024 Conference of the North American Chapter of the Association for
+  Computational Linguistics: Human Language Technologies (Volume 1: Long
+  Papers)}, \bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{address}{Mexico City, Mexico}, \bibinfo{year}{2024}{\natexlab{a}},
+  pp. \bibinfo{pages}{1596--1609}. \URLprefix
+  \url{https://aclanthology.org/2024.naacl-long.89/}.
+  \DOIprefix\doi{10.18653/v1/2024.naacl-long.89}.
+%Type = Inproceedings
+\bibitem[{Chen et~al.(2024{\natexlab{b}})Chen, Wang, Chen, Yu, Ma, Zhao, Zhang,
+  and Yu}]{02_DenseRetrieval}
+\bibinfo{author}{T.~Chen}, \bibinfo{author}{H.~Wang},
+  \bibinfo{author}{S.~Chen}, \bibinfo{author}{W.~Yu}, \bibinfo{author}{K.~Ma},
+  \bibinfo{author}{X.~Zhao}, \bibinfo{author}{H.~Zhang},
+  \bibinfo{author}{D.~Yu},
+\newblock \bibinfo{title}{Dense {X} retrieval: What retrieval granularity
+  should we use?},
+\newblock in: \bibinfo{editor}{Y.~Al-Onaizan}, \bibinfo{editor}{M.~Bansal},
+  \bibinfo{editor}{Y.-N. Chen} (Eds.), \bibinfo{booktitle}{Proceedings of the
+  2024 Conference on Empirical Methods in Natural Language Processing},
+  \bibinfo{publisher}{Association for Computational Linguistics},
+  \bibinfo{address}{Miami, Florida, USA}, \bibinfo{year}{2024}{\natexlab{b}},
+  pp. \bibinfo{pages}{15159--15177}. \URLprefix
+  \url{https://aclanthology.org/2024.emnlp-main.845/}.
+  \DOIprefix\doi{10.18653/v1/2024.emnlp-main.845}.
+%Type = Inproceedings
+\bibitem[{Wei et~al.(2022)Wei, Wang, Schuurmans, Bosma, Ichter, Xia, Chi, Le,
+  and Zhou}]{08_CoT}
+\bibinfo{author}{J.~Wei}, \bibinfo{author}{X.~Wang},
+  \bibinfo{author}{D.~Schuurmans}, \bibinfo{author}{M.~Bosma},
+  \bibinfo{author}{B.~Ichter}, \bibinfo{author}{F.~Xia}, \bibinfo{author}{E.~H.
+  Chi}, \bibinfo{author}{Q.~V. Le}, \bibinfo{author}{D.~Zhou},
+\newblock \bibinfo{title}{Chain-of-thought prompting elicits reasoning in large
+  language models},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 36th International
+  Conference on Neural Information Processing Systems}, NIPS '22,
+  \bibinfo{publisher}{Curran Associates Inc.}, \bibinfo{address}{Red Hook, NY,
+  USA}, \bibinfo{year}{2022}.
+%Type = Inproceedings
+\bibitem[{Trivedi et~al.(2023)Trivedi, Balasubramanian, Khot, and
+  Sabharwal}]{28_CoTandIRCoT}
+\bibinfo{author}{H.~Trivedi}, \bibinfo{author}{N.~Balasubramanian},
+  \bibinfo{author}{T.~Khot}, \bibinfo{author}{A.~Sabharwal},
+\newblock \bibinfo{title}{Interleaving retrieval with chain-of-thought
+  reasoning for knowledge-intensive multi-step questions},
+\newblock in: \bibinfo{editor}{A.~Rogers}, \bibinfo{editor}{J.~Boyd-Graber},
+  \bibinfo{editor}{N.~Okazaki} (Eds.), \bibinfo{booktitle}{Proceedings of the
+  61st Annual Meeting of the Association for Computational Linguistics (Volume
+  1: Long Papers)}, \bibinfo{publisher}{Association for Computational
+  Linguistics}, \bibinfo{address}{Toronto, Canada}, \bibinfo{year}{2023}, pp.
+  \bibinfo{pages}{10014--10037}. \URLprefix
+  \url{https://aclanthology.org/2023.acl-long.557/}.
+  \DOIprefix\doi{10.18653/v1/2023.acl-long.557}.
+%Type = Inproceedings
+\bibitem[{Lewis et~al.(2020)Lewis, Perez, Piktus, Petroni, Karpukhin, Goyal,
+  K\"{u}ttler, Lewis, Yih, Rockt\"{a}schel, Riedel, and
+  Kiela}]{09_OriginalRAGPaper}
+\bibinfo{author}{P.~Lewis}, \bibinfo{author}{E.~Perez},
+  \bibinfo{author}{A.~Piktus}, \bibinfo{author}{F.~Petroni},
+  \bibinfo{author}{V.~Karpukhin}, \bibinfo{author}{N.~Goyal},
+  \bibinfo{author}{H.~K\"{u}ttler}, \bibinfo{author}{M.~Lewis},
+  \bibinfo{author}{W.-t. Yih}, \bibinfo{author}{T.~Rockt\"{a}schel},
+  \bibinfo{author}{S.~Riedel}, \bibinfo{author}{D.~Kiela},
+\newblock \bibinfo{title}{Retrieval-augmented generation for
+  knowledge-intensive nlp tasks},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 34th International
+  Conference on Neural Information Processing Systems}, NIPS '20,
+  \bibinfo{publisher}{Curran Associates Inc.}, \bibinfo{address}{Red Hook, NY,
+  USA}, \bibinfo{year}{2020}.
+%Type = Inproceedings
+\bibitem[{Sartor et~al.(2023)Sartor, Santin, and
+  Caro}]{32_LegalCitationNetwork}
+\bibinfo{author}{G.~Sartor}, \bibinfo{author}{P.~Santin},
+  \bibinfo{author}{L.~D. Caro},
+\newblock \bibinfo{title}{Chasing the invisible in the grammar of repetitions:
+  A network analysis approach to fiscal state aids},
+\newblock in: \bibinfo{booktitle}{Proceedings of the Sixth Workshop on
+  Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  \bibinfo{publisher}{CEUR Workshop Proceedings}, \bibinfo{address}{Braga,
+  Portugal}, \bibinfo{year}{2023}, pp. \bibinfo{pages}{1--10}. \URLprefix
+  \url{http://ceur-ws.org/Vol-3441/}, \bibinfo{note}{use permitted under
+  Creative Commons License Attribution 4.0 International (CC BY 4.0)}.
+%Type = Misc
+\bibitem[{Sanmartin(2024)}]{07a_KGRAG}
+\bibinfo{author}{D.~Sanmartin}, \bibinfo{title}{Kg-rag: Bridging the gap
+  between knowledge and creativity}, \bibinfo{year}{2024}. \URLprefix
+  \url{https://arxiv.org/abs/2405.12035}.
+  \href{http://arxiv.org/abs/2405.12035}{{\tt arXiv:2405.12035}}.
+%Type = Misc
+\bibitem[{Sepasdar et~al.(2024)Sepasdar, Gautam, Midoglu, Riegler, and
+  Halvorsen}]{07b_GraphRAG}
+\bibinfo{author}{Z.~Sepasdar}, \bibinfo{author}{S.~Gautam},
+  \bibinfo{author}{C.~Midoglu}, \bibinfo{author}{M.~A. Riegler},
+  \bibinfo{author}{P.~Halvorsen}, \bibinfo{title}{Enhancing structured-data
+  retrieval with graphrag: Soccer data case study}, \bibinfo{year}{2024}.
+  \URLprefix \url{https://arxiv.org/abs/2409.17580}.
+  \href{http://arxiv.org/abs/2409.17580}{{\tt arXiv:2409.17580}}.
+%Type = Techreport
+\bibitem[{Page et~al.(1999)Page, Brin, Motwani, and
+  Winograd}]{page1999pagerank}
+\bibinfo{author}{L.~Page}, \bibinfo{author}{S.~Brin},
+  \bibinfo{author}{R.~Motwani}, \bibinfo{author}{T.~Winograd},
+  \bibinfo{title}{The PageRank citation ranking: Bringing order to the web.},
+  \bibinfo{type}{Technical Report}, Stanford infolab, \bibinfo{year}{1999}.
+%Type = Misc
+\bibitem[{Team(2024)}]{11_GeminiLLM}
+\bibinfo{author}{G.~Team}, \bibinfo{title}{Gemini: A family of highly capable
+  multimodal models}, \bibinfo{year}{2024}. \URLprefix
+  \url{https://arxiv.org/abs/2312.11805}.
+  \href{http://arxiv.org/abs/2312.11805}{{\tt arXiv:2312.11805}}.
+%Type = Misc
+\bibitem[{Lee et~al.(2024)Lee, Dai, Ren, Chen, Cer, Cole, Hui, Boratko,
+  Kapadia, Ding, Luan, Duddu, Abrego, Shi, Gupta, Kusupati, Jain, Jonnalagadda,
+  Chang, and Naim}]{29_GeckoEmbeddings}
+\bibinfo{author}{J.~Lee}, \bibinfo{author}{Z.~Dai}, \bibinfo{author}{X.~Ren},
+  \bibinfo{author}{B.~Chen}, \bibinfo{author}{D.~Cer}, \bibinfo{author}{J.~R.
+  Cole}, \bibinfo{author}{K.~Hui}, \bibinfo{author}{M.~Boratko},
+  \bibinfo{author}{R.~Kapadia}, \bibinfo{author}{W.~Ding},
+  \bibinfo{author}{Y.~Luan}, \bibinfo{author}{S.~M.~K. Duddu},
+  \bibinfo{author}{G.~H. Abrego}, \bibinfo{author}{W.~Shi},
+  \bibinfo{author}{N.~Gupta}, \bibinfo{author}{A.~Kusupati},
+  \bibinfo{author}{P.~Jain}, \bibinfo{author}{S.~R. Jonnalagadda},
+  \bibinfo{author}{M.-W. Chang}, \bibinfo{author}{I.~Naim},
+  \bibinfo{title}{Gecko: Versatile text embeddings distilled from large
+  language models}, \bibinfo{year}{2024}. \URLprefix
+  \url{https://arxiv.org/abs/2403.20327}.
+  \href{http://arxiv.org/abs/2403.20327}{{\tt arXiv:2403.20327}}.
+%Type = Misc
+\bibitem[{Project(2020)}]{25_free_law_project_recap_2020}
+\bibinfo{author}{T.~F.~L. Project}, \bibinfo{title}{Recap archive},
+  \bibinfo{howpublished}{\url{https://www.courtlistener.com/recap/}},
+  \bibinfo{year}{2020}. \bibinfo{note}{Accessed January 23, 2020}.
+%Type = Article
+\bibitem[{Cushman et~al.(2021)Cushman, Dahl, and Lissner}]{24_eyecite}
+\bibinfo{author}{J.~Cushman}, \bibinfo{author}{M.~Dahl},
+  \bibinfo{author}{M.~Lissner},
+\newblock \bibinfo{title}{eyecite: A tool for parsing legal citations},
+\newblock \bibinfo{journal}{Journal of Open Source Software}
+  \bibinfo{volume}{6} (\bibinfo{year}{2021}) \bibinfo{pages}{3617}. \URLprefix
+  \url{https://doi.org/10.21105/joss.03617}.
+%Type = Misc
+\bibitem[{{Administrative Office of the U.S. Courts}(????)}]{26_PACER}
+\bibinfo{author}{{Administrative Office of the U.S. Courts}},
+  \bibinfo{title}{Public access to court electronic records (pacer)},
+  \bibinfo{howpublished}{\url{https://pacer.uscourts.gov}}, ????
+  \bibinfo{note}{Original source of federal court records}.
+%Type = Manual
+\bibitem[{{Neo4j, Inc.}(2025)}]{27_neo4j}
+\bibinfo{author}{{Neo4j, Inc.}}, \bibinfo{title}{Neo4j Graph Database},
+  \bibinfo{year}{2025}. \bibinfo{note}{Version 5.26.2, Available at:
+  \url{https://neo4j.com/}}.
+%Type = Inproceedings
+\bibitem[{Ferrario and Loi(2022)}]{18_TrustAIExplainability}
+\bibinfo{author}{A.~Ferrario}, \bibinfo{author}{M.~Loi},
+\newblock \bibinfo{title}{How explainability contributes to trust in ai},
+\newblock in: \bibinfo{booktitle}{Proceedings of the 2022 ACM conference on
+  fairness, accountability, and transparency}, \bibinfo{year}{2022}, pp.
+  \bibinfo{pages}{1457--1466}.
+%Type = Article
+\bibitem[{Barabási and Albert(1999)}]{33_ScaleFreeNetwork}
+\bibinfo{author}{A.-L. Barabási}, \bibinfo{author}{R.~Albert},
+\newblock \bibinfo{title}{Emergence of scaling in random networks},
+\newblock \bibinfo{journal}{Science} \bibinfo{volume}{286}
+  (\bibinfo{year}{1999}) \bibinfo{pages}{509--512}.
+  \DOIprefix\doi{10.1126/science.286.5439.509}.
+%Type = Article
+\bibitem[{Beebe(2008)}]{17_FairUse}
+\bibinfo{author}{B.~Beebe},
+\newblock \bibinfo{title}{An empirical study of u.s. copyright fair use
+  opinions, 1978–2005},
+\newblock \bibinfo{journal}{University of Pennsylvania Law Review}
+  \bibinfo{volume}{156} (\bibinfo{year}{2008}) \bibinfo{pages}{549--634}.
+  \URLprefix
+  \url{https://scholarship.law.upenn.edu/penn_law_review/vol156/iss3/2/}.
+
+\end{thebibliography}

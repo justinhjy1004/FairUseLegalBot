@@ -2,7 +2,7 @@ name: Keepalive
 
 on:
   schedule:
-    - cron: '0 */1 * * *'  # Every 1 hour
+    - cron: '0 */8 * * *'  # Every 8 hours
 
 jobs:
   empty_commit:

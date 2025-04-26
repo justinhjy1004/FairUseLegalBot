@@ -35,7 +35,7 @@ class Retriever:
 
     def search_similar_cases(self, text, top_k, similarity_weight, court_weight, case_weight, embedder=gemini_embedder):
 
-        with driver.session() as session:
+        with self.driver.session() as session:
 
             df = pl.from_pandas(session.execute_read(query_search_by_similarity, text, embedder, top_k))
 
@@ -52,7 +52,7 @@ class Retriever:
     # TODO: Write retrieve cited cases
     def get_cited_cases(self, cases, top_k):
 
-        with driver.session() as session:
+        with self.driver.session() as session:
 
             df_cited = pl.from_pandas(session.execute_read(query_get_citation, cases)).filter( pl.col("OpinionType") != "040dissent" ).top_k(top_k, by = "CasePageRank")
 

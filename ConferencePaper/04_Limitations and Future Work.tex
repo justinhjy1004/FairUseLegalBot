@@ -1,0 +1,23 @@
+\section{Limitations and Future Work}
+
+While our prototype demonstrates promising initial results, there are several limitations that must be addressed in future work to ensure robust and reliable deployment.
+
+\subsection{Future Evaluation}
+
+Our current evaluation is limited to internal testing using unresolved copyright complaints and a curated set of legal precedents. To rigorously assess the effectiveness of our prototype, future work should include user studies with legal practitioners and creators, as well as quantitative metrics such as retrieval precision, argument validity, citation relevance, and user trust. We also plan to perform ablation studies to evaluate the individual contributions of textual similarity, citation authority, and court hierarchy in the retrieval scoring function, along with more granular retrieval methods.
+
+Additionally, it is important to evaluate not only the factual and doctrinal accuracy of generated analyses, but also the quality and persuasiveness of the legal arguments. Since legal reasoning involves a degree of subjectivity and contextual nuance, human-in-the-loop evaluations will be essential for understanding the viability of the prototype.
+
+\subsection{Limitations of Current Work}
+
+Despite our focus on grounding retrieval in legal structure, our prototype still exhibits known weaknesses of LLMs, including hallucination and sycophancy. For instance, when presented with vague or generic inputs, the model may generate speculative or overly confident legal conclusions. This is especially problematic in scenarios where users are not legally trained and may rely too heavily on the prototype’s output without independent verification.
+
+While the prototype is designed with legal structure in mind, its interface and guidance mechanisms are not yet optimized for lay users. Since the goal is to support individuals subjected to unfair DMCA takedowns, there is a need for an appropriate information elicitation phase—where an LLM prompts users to describe their dispute, provide specific details relevant to a Fair Use defense, and potentially disclose points that might disqualify them from Fair Use protection.
+
+Furthermore, as noted in Section \ref{sec: Methods}, the use of PageRank—which has a bias against recency—may result in the omission of relevant judicial opinions that reflect evolving doctrine. Empirical legal work that studies how courts interpret and apply legal doctrines can be integrated into the model to complement the limitations of citation-based metrics by capturing nuanced shifts in judicial reasoning and doctrinal emphasis \cite{17_FairUse}.
+
+\subsection{Extension to Other Legal Doctrines}
+
+The current prototype assumes the input case pertains to Fair Use and does not include functionality for classifying the applicability of legal doctrines. Expanding the prototype to determine whether Fair Use is even the appropriate legal framework for a given dispute remains an important next step. The choice to use knowledge graphs was made with the intent of enabling future integration of other legal doctrines.
+
+Future work can build on and extend the current prototype by constructing modules of local expertise that integrate into a larger system. This will likely require a routing mechanism—for instance, training a classifier to determine which legal doctrine applies to a case, and then routing it to the relevant `expert’.

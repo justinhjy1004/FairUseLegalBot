@@ -1,0 +1,57 @@
+This is BibTeX, Version 0.99d (TeX Live 2024)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: elsarticle-num-names.bst
+Database file #1: citation.bib
+Warning--entry type for "25_free_law_project_recap_2020" isn't style-file defined
+--line 561 of file citation.bib
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty pages in 10_LLMFewShotLearner
+Warning--empty pages in 05_BuildingJusticeBot
+Warning--empty pages in 06_GPTAnnotateTextualData
+Warning--empty pages in 22_LegalBench
+Warning--empty pages in 08_CoT
+Warning--empty pages in 09_OriginalRAGPaper
+Warning--empty year in 26_PACER; set to ????
+You've used 32 entries,
+            2918 wiz_defined-function locations,
+            1119 strings with 20299 characters,
+and the built_in function-call counts, 27580 in all, are:
+= -- 1771
+> -- 1756
+< -- 17
++ -- 662
+- -- 624
+* -- 3605
+:= -- 3971
+add.period$ -- 68
+call.type$ -- 32
+change.case$ -- 378
+chr.to.int$ -- 30
+cite$ -- 39
+duplicate$ -- 1859
+empty$ -- 1652
+format.name$ -- 707
+if$ -- 4953
+int.to.chr$ -- 3
+int.to.str$ -- 1
+missing$ -- 426
+newline$ -- 151
+num.names$ -- 134
+pop$ -- 687
+preamble$ -- 1
+purify$ -- 364
+quote$ -- 0
+skip$ -- 424
+stack$ -- 0
+substring$ -- 756
+swap$ -- 1628
+text.length$ -- 5
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 288
+warning$ -- 7
+while$ -- 125
+width$ -- 0
+write$ -- 456
+(There were 8 warnings)

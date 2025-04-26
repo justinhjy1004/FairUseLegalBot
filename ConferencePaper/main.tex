@@ -1,0 +1,122 @@
+%% The first command in your LaTeX source must be the \documentclass command.
+%%
+%% Options:
+%% twocolumn : Two column layout.
+%% hf: enable header and footer.
+\documentclass[
+twocolumn
+% hf,
+]{ceurart}
+
+%%
+%% One can fix some overfulls
+\sloppy
+
+%%
+%% Minted listings support 
+%% Need pygment <http://pygments.org/> <http://pypi.python.org/pypi/Pygments>
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+%% auto break lines
+\lstset{breaklines=true}
+
+%%
+%% end of the preamble, start of the body of the document source.
+\begin{document}
+
+%%
+%% Rights management information.
+%% CC-BY is default license.
+\copyrightyear{2022}
+\copyrightclause{Copyright for this paper by its authors.
+  Use permitted under Creative Commons License Attribution 4.0
+  International (CC BY 4.0).}
+
+%%
+%% This command is for the conference information
+\conference{Proceedings of the Seventh Workshop on Automated Semantic Analysis of Information in Legal Text (ASAIL 2025), June 16, 2025, Chicago, USA.}
+
+%%
+%% The "title" command
+\title{Incorporating Legal Structure in Retrieval-Augmented Generation: A Case Study on Copyright Fair Use}
+
+%%
+%% The "author" command and its associated commands are used to define
+%% the authors and their affiliations.
+\author[1]{Justin Ho}[%
+orcid=0009-0005-0751-9504,
+email=jho@g.harvard.edu,
+url=https://justinhjy1004.github.io/,
+]
+\cormark[1]
+\address[1]{Harvard Business School, Boston MA, 02163, United States of America}
+
+\author[2]{Alexandra Colby}[%
+email=acolby@jd26.law.harvard.edu,
+]
+
+\author[2]{William Fisher}[%
+email=tfisher@law.harvard.edu,
+url=https://hls.harvard.edu/faculty/william-w-fisher/
+]
+
+\address[2]{Harvard Law School, Boston MA, 02138, United States of America}
+
+
+%% Footnotes
+\cortext[1]{Corresponding author.}
+
+%%
+%% The abstract is a short summary of the work to be presented in the
+%% article.
+\begin{abstract}
+  This paper presents a domain-specific implementation of Retrieval-Augmented Generation (RAG) tailored to the Fair Use Doctrine in U.S. copyright law. Motivated by the increasing prevalence of DMCA takedowns and the lack of accessible legal support for content creators, we propose a structured approach that combines semantic search with legal knowledge graphs and court citation networks to improve retrieval quality and reasoning reliability. Our prototype models legal precedents at the statutory factor level (e.g., purpose, nature, amount, market effect) and incorporates citation-weighted graph representations to prioritize doctrinally authoritative sources. We use Chain-of-Thought reasoning and interleaved retrieval steps to better emulate legal reasoning. Preliminary testing suggests this method improves doctrinal relevance in the retrieval process, laying groundwork for future evaluation and deployment of LLM-based legal assistance tools.
+\end{abstract}
+
+%%
+%% Keywords. The author(s) should pick words that accurately describe
+%% the work being presented. Separate the keywords with commas.
+\begin{keywords}
+  Retrieval-Augmented Generation \sep 
+  Fair Use Doctrine \sep  Legal Knowledge Graphs \sep  Legal Citation Networks \sep Legal AI
+\end{keywords}
+
+%%
+%% This command processes the author and affiliation and title
+%% information and builds the first part of the formatted document.
+\maketitle
+
+\input{01_Introduction}
+
+\input{02_Literature Review and Related Work}
+
+\input{03_Methods}
+\input{03a_PreliminaryTesting}
+\input{04_Limitations and Future Work}
+\input{05_Discussion and Conclusion}
+
+%%
+%% The acknowledgments section is defined using the "acknowledgments" environment
+%% (and NOT an unnumbered section). This ensures the proper
+%% identification of the section in the article metadata, and the
+%% consistent spelling of the heading.
+\begin{acknowledgments}
+  We would like to thank the Berkman Klein Center for Internet \& Society at Harvard University for their support of this research.
+\end{acknowledgments}
+
+%% The declaration on generative AI comes in effect
+%% in Janary 2025. See also
+%% https://ceur-ws.org/GenAI/Policy.html
+\section*{Declaration on Generative AI}
+  
+ \noindent{\em{During the preparation of this work, the author(s) used ChatGPT in order to: Grammar and spelling check, Paraphrase and reword, Generate literature review, and Improve writing style. After using this tool/service, the author(s) reviewed and edited the content as needed and take(s) full responsibility for the publication’s content.}} 
+
+\bibliography{citation}
+
+\end{document}
+
+%%
+%% End of file

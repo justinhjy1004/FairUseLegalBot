@@ -1,0 +1,657 @@
+
+% Journals
+
+% First the Full Name is given, then the abbreviation used in the AMS Math
+% Reviews, with an indication if it could not be found there.
+% Note the 2nd overwrites the 1st, so swap them if you want the full name.
+
+ %{AMS}
+ @String{AMSTrans = "American Mathematical Society Translations" }
+ @String{AMSTrans = "Amer. Math. Soc. Transl." }
+ @String{BullAMS = "Bulletin of the American Mathematical Society" }
+ @String{BullAMS = "Bull. Amer. Math. Soc." }
+ @String{ProcAMS = "Proceedings of the American Mathematical Society" }
+ @String{ProcAMS = "Proc. Amer. Math. Soc." }
+ @String{TransAMS = "Transactions of the American Mathematical Society" }
+ @String{TransAMS = "Trans. Amer. Math. Soc." }
+
+ %ACM
+ @String{CACM = "Communications of the {ACM}" }
+ @String{CACM = "Commun. {ACM}" }
+ @String{CompServ = "Comput. Surveys" }
+ @String{JACM = "J. ACM" }
+ @String{ACMMathSoft = "{ACM} Transactions on Mathematical Software" }
+ @String{ACMMathSoft = "{ACM} Trans. Math. Software" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newsletter" }
+ @String{SIGNUM = "{ACM} {SIGNUM} Newslett." }
+
+ @String{AmerSocio = "American Journal of Sociology" }
+ @String{AmerStatAssoc = "Journal of the American Statistical Association" }
+ @String{AmerStatAssoc = "J. Amer. Statist. Assoc." }
+ @String{ApplMathComp = "Applied Mathematics and Computation" }
+ @String{ApplMathComp = "Appl. Math. Comput." }
+ @String{AmerMathMonthly = "American Mathematical Monthly" }
+ @String{AmerMathMonthly = "Amer. Math. Monthly" }
+ @String{BIT = "{BIT}" }
+ @String{BritStatPsych = "British Journal of Mathematical and Statistical
+          Psychology" }
+ @String{BritStatPsych = "Brit. J. Math. Statist. Psych." }
+ @String{CanMathBull = "Canadian Mathematical Bulletin" }
+ @String{CanMathBull = "Canad. Math. Bull." }
+ @String{CompApplMath = "Journal of Computational and Applied Mathematics" }
+ @String{CompApplMath = "J. Comput. Appl. Math." }
+ @String{CompPhys = "Journal of Computational Physics" }
+ @String{CompPhys = "J. Comput. Phys." }
+ @String{CompStruct = "Computers and Structures" }
+ @String{CompStruct = "Comput. \& Structures" }
+ @String{CompJour = "The Computer Journal" }
+ @String{CompJour = "Comput. J." }
+ @String{CompSysSci = "Journal of Computer and System Sciences" }
+ @String{CompSysSci = "J. Comput. System Sci." }
+ @String{Computing = "Computing" }
+ @String{ContempMath = "Contemporary Mathematics" }
+ @String{ContempMath = "Contemp. Math." }
+ @String{Crelle = "Crelle's Journal" }
+ @String{GiornaleMath = "Giornale di Mathematiche" }
+ @String{GiornaleMath = "Giorn. Mat." } % didn't find in AMS MR., ibid.
+
+ %IEEE
+ @String{Computer = "{IEEE} Computer" }
+ @String{IEEETransComp = "{IEEE} Transactions on Computers" }
+ @String{IEEETransComp = "{IEEE} Trans. Comput." }
+ @String{IEEETransAC = "{IEEE} Transactions on Automatic Control" }
+ @String{IEEETransAC = "{IEEE} Trans. Automat. Control" }
+ @String{IEEESpec = "{IEEE} Spectrum" } % didn't find in AMS MR
+ @String{ProcIEEE = "Proceedings of the {IEEE}" }
+ @String{ProcIEEE = "Proc. {IEEE}" } % didn't find in AMS MR
+ @String{IEEETransAeroElec = "{IEEE} Transactions on Aerospace and Electronic
+     Systems" }
+ @String{IEEETransAeroElec = "{IEEE} Trans. Aerospace Electron. Systems" }
+
+ @String{IMANumerAna = "{IMA} Journal of Numerical Analysis" }
+ @String{IMANumerAna = "{IMA} J. Numer. Anal." }
+ @String{InfProcLet = "Information Processing Letters" }
+ @String{InfProcLet = "Inform. Process. Lett." }
+ @String{InstMathApp = "Journal of the Institute of Mathematics and
+     its Applications" }
+ @String{InstMathApp = "J. Inst. Math. Appl." }
+ @String{IntControl = "International Journal of Control" }
+ @String{IntControl = "Internat. J. Control" }
+ @String{IntNumerEng = "International Journal for Numerical Methods in
+     Engineering" }
+ @String{IntNumerEng = "Internat. J. Numer. Methods Engrg." }
+ @String{IntSuper = "International Journal of Supercomputing Applications" }
+ @String{IntSuper = "Internat. J. Supercomputing Applic." } % didn't find
+%% in AMS MR
+ @String{Kibernetika = "Kibernetika" }
+ @String{JResNatBurStand = "Journal of Research of the National Bureau
+     of Standards" }
+ @String{JResNatBurStand = "J. Res. Nat. Bur. Standards" }
+ @String{LinAlgApp = "Linear Algebra and its Applications" }
+ @String{LinAlgApp = "Linear Algebra Appl." }
+ @String{MathAnaAppl = "Journal of Mathematical Analysis and Applications" }
+ @String{MathAnaAppl = "J. Math. Anal. Appl." }
+ @String{MathAnnalen = "Mathematische Annalen" }
+ @String{MathAnnalen = "Math. Ann." }
+ @String{MathPhys = "Journal of Mathematical Physics" }
+ @String{MathPhys = "J. Math. Phys." }
+ @String{MathComp = "Mathematics of Computation" }
+ @String{MathComp = "Math. Comp." }
+ @String{MathScand = "Mathematica Scandinavica" }
+ @String{MathScand = "Math. Scand." }
+ @String{TablesAidsComp = "Mathematical Tables and Other Aids to Computation" }
+ @String{TablesAidsComp = "Math. Tables Aids Comput." }
+ @String{NumerMath = "Numerische Mathematik" }
+ @String{NumerMath = "Numer. Math." }
+ @String{PacificMath = "Pacific Journal of Mathematics" }
+ @String{PacificMath = "Pacific J. Math." }
+ @String{ParDistComp = "Journal of Parallel and Distributed Computing" }
+ @String{ParDistComp = "J. Parallel and Distrib. Comput." } % didn't find
+%% in AMS MR
+ @String{ParComputing = "Parallel Computing" }
+ @String{ParComputing = "Parallel Comput." }
+ @String{PhilMag = "Philosophical Magazine" }
+ @String{PhilMag = "Philos. Mag." }
+ @String{ProcNAS = "Proceedings of the National Academy of Sciences
+                    of the USA" }
+ @String{ProcNAS = "Proc. Nat. Acad. Sci. U. S. A." }
+ @String{Psychometrika = "Psychometrika" }
+ @String{QuartMath = "Quarterly Journal of Mathematics, Oxford, Series (2)" }
+ @String{QuartMath = "Quart. J. Math. Oxford Ser. (2)" }
+ @String{QuartApplMath = "Quarterly of Applied Mathematics" }
+ @String{QuartApplMath = "Quart. Appl. Math." }
+ @String{RevueInstStat = "Review of the International Statisical Institute" }
+ @String{RevueInstStat = "Rev. Inst. Internat. Statist." }
+
+ %SIAM
+ @String{JSIAM = "Journal of the Society for Industrial and Applied
+     Mathematics" }
+ @String{JSIAM = "J. Soc. Indust. Appl. Math." }
+ @String{JSIAMB = "Journal of the Society for Industrial and Applied
+     Mathematics, Series B, Numerical Analysis" }
+ @String{JSIAMB = "J. Soc. Indust. Appl. Math. Ser. B Numer. Anal." }
+ @String{SIAMAlgMeth = "{SIAM} Journal on Algebraic and Discrete Methods" }
+ @String{SIAMAlgMeth = "{SIAM} J. Algebraic Discrete Methods" }
+ @String{SIAMAppMath = "{SIAM} Journal on Applied Mathematics" }
+ @String{SIAMAppMath = "{SIAM} J. Appl. Math." }
+ @String{SIAMComp = "{SIAM} Journal on Computing" }
+ @String{SIAMComp = "{SIAM} J. Comput." }
+ @String{SIAMMatrix = "{SIAM} Journal on Matrix Analysis and Applications" }
+ @String{SIAMMatrix = "{SIAM} J. Matrix Anal. Appl." }
+ @String{SIAMNumAnal = "{SIAM} Journal on Numerical Analysis" }
+ @String{SIAMNumAnal = "{SIAM} J. Numer. Anal." }
+ @String{SIAMReview = "{SIAM} Review" }
+ @String{SIAMReview = "{SIAM} Rev." }
+ @String{SIAMSciStat = "{SIAM} Journal on Scientific and Statistical
+     Computing" }
+ @String{SIAMSciStat = "{SIAM} J. Sci. Statist. Comput." }
+
+ @String{SoftPracExp = "Software Practice and Experience" }
+ @String{SoftPracExp = "Software Prac. Experience" } % didn't find in AMS MR
+ @String{StatScience = "Statistical Science" }
+ @String{StatScience = "Statist. Sci." }
+ @String{Techno = "Technometrics" }
+ @String{USSRCompMathPhys = "{USSR} Computational Mathematics and Mathematical
+     Physics" }
+ @String{USSRCompMathPhys = "{U. S. S. R.} Comput. Math. and Math. Phys." }
+ @String{VLSICompSys = "Journal of {VLSI} and Computer Systems" }
+ @String{VLSICompSys = "J. {VLSI} Comput. Syst." }
+ @String{ZAngewMathMech = "Zeitschrift fur Angewandte Mathematik und
+     Mechanik" }
+ @String{ZAngewMathMech = "Z. Angew. Math. Mech." }
+ @String{ZAngewMathPhys = "Zeitschrift fur Angewandte Mathematik und Physik" }
+ @String{ZAngewMathPhys = "Z. Angew. Math. Phys." }
+
+% Publishers % ================================================= |
+
+ @String{Academic = "Academic Press" }
+ @String{ACMPress = "{ACM} Press" }
+ @String{AdamHilger = "Adam Hilger" }
+ @String{AddisonWesley = "Addison-Wesley" }
+ @String{AllynBacon = "Allyn and Bacon" }
+ @String{AMS = "American Mathematical Society" }
+ @String{Birkhauser = "Birkha{\"u}ser" }
+ @String{CambridgePress = "Cambridge University Press" }
+ @String{Chelsea = "Chelsea" }
+ @String{ClaredonPress = "Claredon Press" }
+ @String{DoverPub = "Dover Publications" }
+ @String{Eyolles = "Eyolles" }
+ @String{HoltRinehartWinston = "Holt, Rinehart and Winston" }
+ @String{Interscience = "Interscience" }
+ @String{JohnsHopkinsPress = "The Johns Hopkins University Press" }
+ @String{JohnWileySons = "John Wiley and Sons" }
+ @String{Macmillan = "Macmillan" }
+ @String{MathWorks = "The Math Works Inc." }
+ @String{McGrawHill = "McGraw-Hill" }
+ @String{NatBurStd = "National Bureau of Standards" }
+ @String{NorthHolland = "North-Holland" }
+ @String{OxfordPress = "Oxford University Press" }  %address Oxford or London?
+ @String{PergamonPress = "Pergamon Press" }
+ @String{PlenumPress = "Plenum Press" }
+ @String{PrenticeHall = "Prentice-Hall" }
+ @String{SIAMPub = "{SIAM} Publications" }
+ @String{Springer = "Springer-Verlag" }
+ @String{TexasPress = "University of Texas Press" }
+ @String{VanNostrand = "Van Nostrand" }
+ @String{WHFreeman = "W. H. Freeman and Co." }
+
+%Entries
+
+@ARTICLE{01_UnifyingKGwithLLM,
+  author={Pan, Shirui and Luo, Linhao and Wang, Yufei and Chen, Chen and Wang, Jiapu and Wu, Xindong},
+  journal={IEEE Transactions on Knowledge and Data Engineering}, 
+  title={Unifying Large Language Models and Knowledge Graphs: A Roadmap}, 
+  year={2024},
+  volume={36},
+  number={7},
+  pages={3580-3599},
+  keywords={Task analysis;Decoding;Cognition;Training;Predictive models;Knowledge graphs;Chatbots;Natural language processing;large language models;generative pre-training;knowledge graphs;roadmap;bidirectional reasoning},
+  doi={10.1109/TKDE.2024.3352100}}
+
+@inproceedings{02_DenseRetrieval,
+    title = "Dense {X} Retrieval: What Retrieval Granularity Should We Use?",
+    author = "Chen, Tong  and
+      Wang, Hongwei  and
+      Chen, Sihao  and
+      Yu, Wenhao  and
+      Ma, Kaixin  and
+      Zhao, Xinran  and
+      Zhang, Hongming  and
+      Yu, Dong",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.emnlp-main.845/",
+    doi = "10.18653/v1/2024.emnlp-main.845",
+    pages = "15159--15177",
+}
+
+@inproceedings{
+03a_PerspectiveAwareRetrieval,
+title={Beyond Relevance: Evaluate and Improve Retrievers on Perspective Awareness},
+author={Xinran Zhao and Tong Chen and Sihao Chen and Hongming Zhang and Tongshuang Wu},
+booktitle={First Conference on Language Modeling},
+year={2024},
+url={https://openreview.net/forum?id=7VPKtz8CHN}
+}
+
+@inproceedings{03b_SemanticRepresentationContextual,
+    title = "Sub-Sentence Encoder: Contrastive Learning of Propositional Semantic Representations",
+    author = "Chen, Sihao  and
+      Zhang, Hongming  and
+      Chen, Tong  and
+      Zhou, Ben  and
+      Yu, Wenhao  and
+      Yu, Dian  and
+      Peng, Baolin  and
+      Wang, Hongwei  and
+      Roth, Dan  and
+      Yu, Dong",
+    editor = "Duh, Kevin  and
+      Gomez, Helena  and
+      Bethard, Steven",
+    booktitle = "Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)",
+    month = jun,
+    year = "2024",
+    address = "Mexico City, Mexico",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.naacl-long.89/",
+    doi = "10.18653/v1/2024.naacl-long.89",
+    pages = "1596--1609",
+    abstract = "We introduce sub-sentence encoder, a contrastively-learned contextual embedding model for fine-grained semantic representation of text. In contrast to the standard practice with sentence embeddings, where the meaning of an entire sequence of text is encoded into a fixed-length vector, the sub-sentence encoder learns to produce distinct contextual embeddings corresponding to different atomic propositions, i.e. atomic units of meaning expressed within a text sequence. The sub-sentence embeddings are contrastively learned to recognize (inferred) semantic equivalence between propositions across different text sequences. Our experiments show the effectiveness of sub-sentence encoders in applications, such as retrieving supporting facts for fine-grained text attribution or recognizing the conditional semantic similarity between texts. In practice, we demonstrate that sub-sentence encoders keep the same level of inference cost and space complexity compared to sentence encoders."
+}
+
+@article{04_LegalHallucination,
+    author = {Dahl, Matthew and Magesh, Varun and Suzgun, Mirac and Ho, Daniel E},
+    title = {Large Legal Fictions: Profiling Legal Hallucinations in Large Language Models},
+    journal = {Journal of Legal Analysis},
+    volume = {16},
+    number = {1},
+    pages = {64-93},
+    year = {2024},
+    month = {06},
+    abstract = {Do large language models (LLMs) know the law? LLMs are increasingly being used to augment legal practice, education, and research, yet their revolutionary potential is threatened by the presence of “hallucinations”—textual output that is not consistent with legal facts. We present the first systematic evidence of these hallucinations in public-facing LLMs, documenting trends across jurisdictions, courts, time periods, and cases. Using OpenAI’s ChatGPT 4 and other public models, we show that LLMs hallucinate at least 58\% of the time, struggle to predict their own hallucinations, and often uncritically accept users’ incorrect legal assumptions. We conclude by cautioning against the rapid and unsupervised integration of popular LLMs into legal tasks, and we develop a typology of legal hallucinations to guide future research in this area.},
+    issn = {2161-7201},
+    doi = {10.1093/jla/laae003},
+    url = {https://doi.org/10.1093/jla/laae003}
+}
+
+@misc{04b_HallucinationFree,
+      title={Hallucination-Free? Assessing the Reliability of Leading AI Legal Research Tools}, 
+      author={Varun Magesh and Faiz Surani and Matthew Dahl and Mirac Suzgun and Christopher D. Manning and Daniel E. Ho},
+      year={2024},
+      eprint={2405.20362},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2405.20362}, 
+}
+
+@inproceedings{05_BuildingJusticeBot,
+  title     = {Bridging the Gap: Mapping Layperson Narratives to Legal Issues with Language Models},
+  author    = {Hannes Westermann and Sébastien Meeùs and Mia Godet and Aurore Troussel and Jinzhe Tan and Jaromir Savelka and Karim Benyekhlef},
+  booktitle = {Proceedings of the Sixth Workshop on Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  year      = {2023},
+  address   = {Braga, Portugal},
+  publisher = {CEUR Workshop Proceedings},
+  url       = {https://ceur-ws.org/Vol-3441/},
+  note      = {Available under CC BY 4.0 license}
+}
+
+@inproceedings{06_GPTAnnotateTextualData,
+  title     = {Can GPT-4 Support Analysis of Textual Data in Tasks Requiring Highly Specialized Domain Expertise?},
+  author    = {Jaromir Savelka and Kevin D. Ashley and Morgan A. Gray and Hannes Westermann and Huihui Xu},
+  booktitle = {Proceedings of the Sixth Workshop on Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  year      = {2023},
+  address   = {Braga, Portugal},
+  publisher = {CEUR Workshop Proceedings},
+  url       = {http://ceur-ws.org/Vol-3441/},
+  note      = {Available under CC BY 4.0 license}
+}
+
+@misc{07a_KGRAG,
+      title={KG-RAG: Bridging the Gap Between Knowledge and Creativity}, 
+      author={Diego Sanmartin},
+      year={2024},
+      eprint={2405.12035},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2405.12035}, 
+}
+
+@misc{07b_GraphRAG,
+      title={Enhancing Structured-Data Retrieval with GraphRAG: Soccer Data Case Study}, 
+      author={Zahra Sepasdar and Sushant Gautam and Cise Midoglu and Michael A. Riegler and Pål Halvorsen},
+      year={2024},
+      eprint={2409.17580},
+      archivePrefix={arXiv},
+      primaryClass={cs.IR},
+      url={https://arxiv.org/abs/2409.17580}, 
+}
+
+@inproceedings{08_CoT,
+author = {Wei, Jason and Wang, Xuezhi and Schuurmans, Dale and Bosma, Maarten and Ichter, Brian and Xia, Fei and Chi, Ed H. and Le, Quoc V. and Zhou, Denny},
+title = {Chain-of-thought prompting elicits reasoning in large language models},
+year = {2022},
+isbn = {9781713871088},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {We explore how generating a chain of thought—a series of intermediate reasoning steps—significantly improves the ability of large language models to perform complex reasoning. In particular, we show how such reasoning abilities emerge naturally in sufficiently large language models via a simple method called chain-of-thought prompting, where a few chain of thought demonstrations are provided as exemplars in prompting.Experiments on three large language models show that chain-of-thought prompting improves performance on a range of arithmetic, commonsense, and symbolic reasoning tasks. The empirical gains can be striking. For instance, prompting a PaLM 540B with just eight chain-of-thought exemplars achieves state-of-the-art accuracy on the GSM8K benchmark of math word problems, surpassing even finetuned GPT-3 with a verifier.},
+booktitle = {Proceedings of the 36th International Conference on Neural Information Processing Systems},
+articleno = {1800},
+numpages = {14},
+location = {New Orleans, LA, USA},
+series = {NIPS '22}
+}
+
+@inproceedings{09_OriginalRAGPaper,
+author = {Lewis, Patrick and Perez, Ethan and Piktus, Aleksandra and Petroni, Fabio and Karpukhin, Vladimir and Goyal, Naman and K\"{u}ttler, Heinrich and Lewis, Mike and Yih, Wen-tau and Rockt\"{a}schel, Tim and Riedel, Sebastian and Kiela, Douwe},
+title = {Retrieval-augmented generation for knowledge-intensive NLP tasks},
+year = {2020},
+isbn = {9781713829546},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {Large pre-trained language models have been shown to store factual knowledge in their parameters, and achieve state-of-the-art results when fine-tuned on downstream NLP tasks. However, their ability to access and precisely manipulate knowledge is still limited, and hence on knowledge-intensive tasks, their performance lags behind task-specific architectures. Additionally, providing provenance for their decisions and updating their world knowledge remain open research problems. Pre-trained models with a differentiable access mechanism to explicit non-parametric memory can overcome this issue, but have so far been only investigated for extractive downstream tasks. We explore a general-purpose fine-tuning recipe for retrieval-augmented generation (RAG) — models which combine pre-trained parametric and non-parametric memory for language generation. We introduce RAG models where the parametric memory is a pre-trained seq2seq model and the non-parametric memory is a dense vector index of Wikipedia, accessed with a pre-trained neural retriever. We compare two RAG formulations, one which conditions on the same retrieved passages across the whole generated sequence, and another which can use different passages per token. We fine-tune and evaluate our models on a wide range of knowledge-intensive NLP tasks and set the state of the art on three open domain QA tasks, outperforming parametric seq2seq models and task-specific retrieve-and-extract architectures. For language generation tasks, we find that RAG models generate more specific, diverse and factual language than a state-of-the-art parametric-only seq2seq baseline.},
+booktitle = {Proceedings of the 34th International Conference on Neural Information Processing Systems},
+articleno = {793},
+numpages = {16},
+location = {Vancouver, BC, Canada},
+series = {NIPS '20}
+}
+
+@inproceedings{10_LLMFewShotLearner,
+author = {Brown, Tom B. and Mann, Benjamin and Ryder, Nick and Subbiah, Melanie and Kaplan, Jared and Dhariwal, Prafulla and Neelakantan, Arvind and Shyam, Pranav and Sastry, Girish and Askell, Amanda and Agarwal, Sandhini and Herbert-Voss, Ariel and Krueger, Gretchen and Henighan, Tom and Child, Rewon and Ramesh, Aditya and Ziegler, Daniel M. and Wu, Jeffrey and Winter, Clemens and Hesse, Christopher and Chen, Mark and Sigler, Eric and Litwin, Mateusz and Gray, Scott and Chess, Benjamin and Clark, Jack and Berner, Christopher and McCandlish, Sam and Radford, Alec and Sutskever, Ilya and Amodei, Dario},
+title = {Language models are few-shot learners},
+year = {2020},
+isbn = {9781713829546},
+publisher = {Curran Associates Inc.},
+address = {Red Hook, NY, USA},
+abstract = {We demonstrate that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even becoming competitive with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks. We also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora.},
+booktitle = {Proceedings of the 34th International Conference on Neural Information Processing Systems},
+articleno = {159},
+numpages = {25},
+location = {Vancouver, BC, Canada},
+series = {NIPS '20}
+}
+
+@misc{11_GeminiLLM,
+      title={Gemini: A Family of Highly Capable Multimodal Models}, 
+      author={Gemini Team},
+      year={2024},
+      eprint={2312.11805},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2312.11805}, 
+}
+
+@INPROCEEDINGS{12_Neo4jQKG,
+  author={Bharti, Suman and Lo, Dan Chia-Tien and Shi, Yong},
+  booktitle={2024 IEEE International Conference on Big Data (BigData)}, 
+  title={Enhancing Contextual Understanding in Knowledge Graphs: Integration of Quantum Natural Language Processing with Neo4j LLM Knowledge Graph}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={8628-8630},
+  keywords={Quantum computing;Quantum entanglement;Semantics;Knowledge graphs;Predictive models;Probabilistic logic;Natural language processing;Cognition;Planning;Context modeling;Neo4j;QNLP;LLM;KGs;NLP},
+  doi={10.1109/BigData62323.2024.10826002}}
+
+@ARTICLE{13_AdaptiveMoE,
+  author={Jacobs, Robert A. and Jordan, Michael I. and Nowlan, Steven J. and Hinton, Geoffrey E.},
+  journal={Neural Computation}, 
+  title={Adaptive Mixtures of Local Experts}, 
+  year={1991},
+  volume={3},
+  number={1},
+  pages={79-87},
+  keywords={},
+  doi={10.1162/neco.1991.3.1.79}}
+
+@article{14_FairUseInYouTube,
+  title={Where's the fair use: The takedown of let's play and reaction videos on YouTube and the need for comprehensive DMCA reform},
+  author={Vogele, Jessica},
+  journal={Touro L. Rev.},
+  volume={33},
+  pages={589},
+  year={2017},
+  publisher={HeinOnline}
+}
+
+@misc{15_USC107,
+  title        = {17 U.S.C. § 107 - Limitations on exclusive rights: Fair use},
+  author       = {{U.S. Congress}},
+  year         = {2024},
+  note         = {Retrieved from https://www.law.cornell.edu/uscode/text/17/107},
+  howpublished = {\url{https://www.law.cornell.edu/uscode/text/17/107}}
+}
+
+@misc{16_DMCA,
+  title        = {17 U.S.C. § 512 - Limitations on liability relating to material online},
+  author       = {{U.S. Congress}},
+  year         = {2024},
+  note         = {Retrieved from https://www.law.cornell.edu/uscode/text/17/512},
+  howpublished = {\url{https://www.law.cornell.edu/uscode/text/17/512}}
+}
+
+@article{17_FairUse,
+  author       = {Barton Beebe},
+  title        = {An Empirical Study of U.S. Copyright Fair Use Opinions, 1978–2005},
+  journal      = {University of Pennsylvania Law Review},
+  volume       = {156},
+  number       = {3},
+  pages        = {549--634},
+  year         = {2008},
+  publisher    = {University of Pennsylvania Law School},
+  url          = {https://scholarship.law.upenn.edu/penn_law_review/vol156/iss3/2/}
+}
+
+@inproceedings{18_TrustAIExplainability,
+  title={How explainability contributes to trust in AI},
+  author={Ferrario, Andrea and Loi, Michele},
+  booktitle={Proceedings of the 2022 ACM conference on fairness, accountability, and transparency},
+  pages={1457--1466},
+  year={2022}
+}
+
+@inproceedings{19_LLMsLimitation,
+    title = "A Comprehensive Evaluation of Large Language Models on Legal Judgment Prediction",
+    author = "Shui, Ruihao  and
+      Cao, Yixin  and
+      Wang, Xiang  and
+      Chua, Tat-Seng",
+    editor = "Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2023",
+    month = dec,
+    year = "2023",
+    address = "Singapore",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.findings-emnlp.490/",
+    doi = "10.18653/v1/2023.findings-emnlp.490",
+    pages = "7337--7348",
+    abstract = "Large language models (LLMs) have demonstrated great potential for domain-specific applications, such as the law domain. However, recent disputes over GPT-4`s law evaluation raise questions concerning their performance in real-world legal tasks. To systematically investigate their competency in the law, we design practical baseline solutions based on LLMs and test on the task of legal judgment prediction. In our solutions, LLMs can work alone to answer open questions or coordinate with an information retrieval (IR) system to learn from similar cases or solve simplified multi-choice questions. We show that similar cases and multi-choice options, namely label candidates, included in prompts can help LLMs recall domain knowledge that is critical for expertise legal reasoning. We additionally present an intriguing paradox wherein an IR system surpasses the performance of LLM+IR due to limited gains acquired by weaker LLMs from powerful IR systems. In such case, the role of LLMs becomes redundant. Our evaluation pipeline can be easily extended into other tasks to facilitate evaluations in other domains. Code is available at https://github.com/srhthu/LM-CompEval-Legal"
+}
+
+@article{20_LLMSurvey,
+title = {Large Language Models in Law: A Survey},
+journal = {AI Open},
+volume = {5},
+pages = {181-196},
+year = {2024},
+issn = {2666-6510},
+doi = {https://doi.org/10.1016/j.aiopen.2024.09.002},
+url = {https://www.sciencedirect.com/science/article/pii/S2666651024000172},
+author = {Jinqi Lai and Wensheng Gan and Jiayang Wu and Zhenlian Qi and Philip S. Yu},
+keywords = {Artificial intelligence, LLMs, Justice, Legal model},
+abstract = {The advent of artificial intelligence (AI) has significantly impacted the traditional judicial industry. Moreover, recently, with the development of AI-generated content (AIGC), AI and law have found applications in various domains, including image recognition, automatic text generation, and interactive chat. With the rapid emergence and growing popularity of large models, it is evident that AI will drive transformation in the traditional judicial industry. However, the application of legal large language models (LLMs) is still in its nascent stage. Several challenges need to be addressed. In this paper, we aim to provide a comprehensive survey of legal LLMs. We not only conduct an extensive survey of LLMs but also expose their applications in the judicial system. We first provide an overview of AI technologies in the legal field and showcase the recent research in LLMs. Then, we discuss the practical implementations presented by legal LLMs, such as providing legal advice to users and assisting judges during trials. In addition, we explore the limitations of legal LLMs, including data, algorithms, and judicial practice. Finally, we summarize practical recommendations and propose future development directions to address these challenges.}
+}
+
+@article{21a_DMCAAbuse,
+issn = {2334-1610},
+journal = {Santa Clara high-technology law journal},
+pages = {1},
+volume = {35},
+publisher = {Santa Clara University},
+number = {2},
+year = {2018},
+title = {Unfair Misuse: How Section 512 of the DMCA Allows Abuse of the Copyright Fair Use Doctrine and How to Fix It},
+copyright = {COPYRIGHT 2018 Santa Clara University},
+language = {eng},
+author = {Matteson, Joel D},
+keywords = {Fair use (Copyright law) ; Abuse of process ; Copyright infringement ; Defense (Civil procedure) ; Freedom of speech ; Intellectual property ; Internet service providers ; Laws regulations and rules ; Notice and takedown ; Remedies},
+}
+
+
+@article{21b_DMCAAbuse,
+issn = {0142-0461},
+abstract = {The Digital Millennium Copyright Act's "notice and takedown" process is increasingly referred to as a model solution for content removal mechanisms worldwide. While it has emerged as a process capable of producing relatively consistent results, it also has significant problems-and is left open to different kinds of abuse. It is important to recognise these issues in order to ensure that they are not repeated in future legislation. To that end, this article examines the DMCA with reference to its historical context, and the general issues surrounding the enforcement of copyright infringement claims. It then goes on to discuss the notice and takedown process in detail-along with its advantages, disadvantages, criticisms and praise. Specific examples of the kinds of abuse reported by online service providers are outlined, along with explanations of the statutory construction that allows these situations to continue. To finish, the viability of potential alternatives and proposed changes are discussed.},
+journal = {European intellectual property review},
+pages = {70--88},
+volume = {41},
+number = {2},
+year = {2019},
+title = {Freedom of speech and the DMCA: Abuse of the notification and takedown process},
+language = {eng},
+author = {Stephen McLeod Blythe},
+keywords = {Freedom of speech ; Copyright infringement ; Freedom of expression ; Internet service providers},
+}
+
+
+@inproceedings{
+22_LegalBench,
+title={LegalBench: A Collaboratively Built Benchmark for Measuring Legal Reasoning in Large Language Models},
+author={Neel Guha and Julian Nyarko and Daniel E. Ho and Christopher Re and Adam Chilton and Aditya Narayana and Alex Chohlas-Wood and Austin Peters and Brandon Waldon and Daniel Rockmore and Diego Zambrano and Dmitry Talisman and Enam Hoque and Faiz Surani and Frank Fagan and Galit Sarfaty and Gregory M. Dickinson and Haggai Porat and Jason Hegland and Jessica Wu and Joe Nudell and Joel Niklaus and John J Nay and Jonathan H. Choi and Kevin Tobia and Margaret Hagan and Megan Ma and Michael Livermore and Nikon Rasumov-Rahe and Nils Holzenberger and Noam Kolt and Peter Henderson and Sean Rehaag and Sharad Goel and Shang Gao and Spencer Williams and Sunny Gandhi and Tom Zur and Varun Iyer and Zehua Li},
+booktitle={Thirty-seventh Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+year={2023},
+url={https://openreview.net/forum?id=WqSPQFxFRC}
+}
+
+@misc{23_NonParametricRAGContinualLearning,
+      title={From RAG to Memory: Non-Parametric Continual Learning for Large Language Models}, 
+      author={Bernal Jiménez Gutiérrez and Yiheng Shu and Weijian Qi and Sizhe Zhou and Yu Su},
+      year={2025},
+      eprint={2502.14802},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2502.14802}, 
+}
+
+@techreport{page1999pagerank,
+  title={The PageRank citation ranking: Bringing order to the web.},
+  author={Page, Lawrence and Brin, Sergey and Motwani, Rajeev and Winograd, Terry},
+  year={1999},
+  institution={Stanford infolab}
+}
+
+@article{24_eyecite,
+    title = {eyecite: A Tool for Parsing Legal Citations},
+    author = {Cushman, Jack and Dahl, Matthew and Lissner, Michael},
+    year = {2021},
+    journal = {Journal of Open Source Software},
+    volume = {6},
+    number = {66},
+    pages = {3617},
+    url = {https://doi.org/10.21105/joss.03617},
+}
+
+@website{25_free_law_project_recap_2020,
+  author       = {The Free Law Project},
+  title        = {RECAP Archive},
+  year         = {2020},
+  howpublished = {\url{https://www.courtlistener.com/recap/}},
+  note         = {Accessed January 23, 2020}
+}
+
+
+@misc{26_PACER,
+  author       = {{Administrative Office of the U.S. Courts}},
+  title        = {Public Access to Court Electronic Records (PACER)},
+  howpublished = {\url{https://pacer.uscourts.gov}},
+  note         = {Original source of federal court records}
+}
+
+@manual{27_neo4j,
+  title        = {Neo4j Graph Database},
+  author       = {{Neo4j, Inc.}},
+  year         = {2025},
+  note         = {Version 5.26.2, Available at: \url{https://neo4j.com/}},
+}
+
+@inproceedings{28_CoTandIRCoT,
+    title = "Interleaving Retrieval with Chain-of-Thought Reasoning for Knowledge-Intensive Multi-Step Questions",
+    author = "Trivedi, Harsh  and
+      Balasubramanian, Niranjan  and
+      Khot, Tushar  and
+      Sabharwal, Ashish",
+    editor = "Rogers, Anna  and
+      Boyd-Graber, Jordan  and
+      Okazaki, Naoaki",
+    booktitle = "Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = jul,
+    year = "2023",
+    address = "Toronto, Canada",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.acl-long.557/",
+    doi = "10.18653/v1/2023.acl-long.557",
+    pages = "10014--10037",
+    abstract = "Prompting-based large language models (LLMs) are surprisingly powerful at generating natural language reasoning steps or Chains-of-Thoughts (CoT) for multi-step question answering (QA). They struggle, however, when the necessary knowledge is either unavailable to the LLM or not up-to-date within its parameters. While using the question to retrieve relevant text from an external knowledge source helps LLMs, we observe that this one-step retrieve-and-read approach is insufficient for multi-step QA. Here, \textit{what to retrieve} depends on \textit{what has already been derived}, which in turn may depend on \textit{what was previously retrieved}. To address this, we propose IRCoT, a new approach for multi-step QA that interleaves retrieval with steps (sentences) in a CoT, guiding the retrieval with CoT and in turn using retrieved results to improve CoT. Using IRCoT with GPT3 substantially improves retrieval (up to 21 points) as well as downstream QA (up to 15 points) on four datasets: HotpotQA, 2WikiMultihopQA, MuSiQue, and IIRC. We observe similar substantial gains in out-of-distribution (OOD) settings as well as with much smaller models such as Flan-T5-large without additional training. IRCoT reduces model hallucination, resulting in factually more accurate CoT reasoning."
+}
+
+
+@misc{29_GeckoEmbeddings,
+      title={Gecko: Versatile Text Embeddings Distilled from Large Language Models}, 
+      author={Jinhyuk Lee and Zhuyun Dai and Xiaoqi Ren and Blair Chen and Daniel Cer and Jeremy R. Cole and Kai Hui and Michael Boratko and Rajvi Kapadia and Wen Ding and Yi Luan and Sai Meher Karthik Duddu and Gustavo Hernandez Abrego and Weiqiang Shi and Nithi Gupta and Aditya Kusupati and Prateek Jain and Siddhartha Reddy Jonnalagadda and Ming-Wei Chang and Iftekhar Naim},
+      year={2024},
+      eprint={2403.20327},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2403.20327}, 
+}
+
+@misc{30_ContinualLearningKGLoRA,
+      title={Fast and Continual Knowledge Graph Embedding via Incremental LoRA}, 
+      author={Jiajun Liu and Wenjun Ke and Peng Wang and Jiahao Wang and Jinhua Gao and Ziyu Shang and Guozheng Li and Zijie Xu and Ke Ji and Yining Li},
+      year={2024},
+      eprint={2407.05705},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI},
+      url={https://arxiv.org/abs/2407.05705}, 
+}
+
+@misc{31_ChunkRAG,
+      title={ChunkRAG: Novel LLM-Chunk Filtering Method for RAG Systems}, 
+      author={Ishneet Sukhvinder Singh and Ritvik Aggarwal and Ibrahim Allahverdiyev and Muhammad Taha and Aslihan Akalin and Kevin Zhu and Sean O'Brien},
+      year={2024},
+      eprint={2410.19572},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2410.19572}, 
+}
+
+@inproceedings{32_LegalCitationNetwork,
+  title     = {Chasing the Invisible in the Grammar of Repetitions: A Network Analysis Approach to Fiscal State Aids},
+  author    = {Galileo Sartor and Piera Santin and Luigi Di Caro},
+  booktitle = {Proceedings of the Sixth Workshop on Automated Semantic Analysis of Information in Legal Text (ASAIL 2023)},
+  year      = {2023},
+  month     = {June},
+  pages     = {1--10},
+  address   = {Braga, Portugal},
+  publisher = {CEUR Workshop Proceedings},
+  url       = {http://ceur-ws.org/Vol-3441/}, 
+  note      = {Use permitted under Creative Commons License Attribution 4.0 International (CC BY 4.0)}
+}
+
+@article{33_ScaleFreeNetwork,
+author = {Albert-László Barabási  and Réka Albert },
+title = {Emergence of Scaling in Random Networks},
+journal = {Science},
+volume = {286},
+number = {5439},
+pages = {509-512},
+year = {1999},
+doi = {10.1126/science.286.5439.509},
+abstract = {Systems as diverse as genetic networks or the World Wide Web are best described as networks with complex topology. A common property of many large networks is that the vertex connectivities follow a scale-free power-law distribution. This feature was found to be a consequence of two generic mechanisms: (i) networks expand continuously by the addition of new vertices, and (ii) new vertices attach preferentially to sites that are already well connected. A model based on these two ingredients reproduces the observed stationary scale-free distributions, which indicates that the development of large networks is governed by robust self-organizing phenomena that go beyond the particulars of the individual systems.}}
