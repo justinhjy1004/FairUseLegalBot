@@ -17,7 +17,7 @@ The Large Language Model used is Google's Gemini Flash 2.0 \cite{11_GeminiLLM}, 
 
 \subsection{Data Corpus}
 
-We identified all legal precedents relevant to the Fair Use Doctrine in copyright by searching for the keywords: [keywords here...] via WestLaw Case Search. We then sourced the legal corpus relevant to the Fair Use Doctrine in copyright from Court Listener \cite{25_free_law_project_recap_2020} and [the other source here]. Furthermore, we used EyeCite, an Open Source Software developed to identify case law citations in documents to construct our citation network \cite{24_eyecite}. 
+Using WestLaw Precision's fact pattern search, we located all legal precedents relevant to the Fair Use Doctrine in copyright law. We then sourced the legal corpus relevant to the Fair Use Doctrine in copyright from Court Listener \cite{25_free_law_project_recap_2020} and Hein Online. Furthermore, we used EyeCite, an Open Source Software developed to identify case law citations in documents to construct our citation network \cite{24_eyecite}. 
 
 \begin{table}[h!]
   \centering
@@ -34,9 +34,7 @@ We identified all legal precedents relevant to the Fair Use Doctrine in copyrigh
 
 The number of opinions exceeds the number of cases because a single case may generate multiple judicial opinions, including appellate decisions, as well as concurring or dissenting views authored by individual judges.
 
-Additionally, we sourced complaints related to Copyright infringement that were not resolved in court from Public Access to Court Electronic Records (PACER) \cite{26_PACER}. These serve as a preliminary test dataset for our working prototype, as they represent real Fair Use disputes that were unresolved, and hence provide a way to measure how well our model performs in unresolved cases.
-
-We sourced a total of [number of cases here], and they were identified by [how they were obtained/searched].
+Additionally, we sourced complaints related to Copyright infringement that were not resolved in court from Public Access to Court Electronic Records (PACER) \cite{26_PACER}. These serve as a preliminary test dataset for our working prototype, as they represent real Fair Use disputes that were unresolved, and hence provide a way to measure how well our model performs in unresolved cases. We sourced a total of 20 cases.
 
 \subsection{Data Representation}
 \label{sec: data_representation_KG}
@@ -171,4 +169,4 @@ As of April 2025, we have developed a functional prototype of the application. T
 
 The current version supports uploading a complaint or a text description of a dispute, and retrieve the most relevant documents based on the hyperparameters configured in the left panel (``RAG Component Methods”). We have currently implemented the manual weighting of the three parameters, and users can specify the $k$ number of documents as well as $n$ number of cited cases. 
 
-While formal evaluations and user studies have not yet been conducted, the current version of the application establishes a strong foundation for future experimentation and ablation studies. Preliminary testing of the retrieval system is presented in the following section. Internally, the application has been tested on [data size/type], with early feedback from [users/testers] indicating that [brief takeaway].
+While formal evaluations and user studies have not yet been conducted, the current version of the application establishes a strong foundation for future experimentation and ablation studies.
