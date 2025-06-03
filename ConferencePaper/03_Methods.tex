@@ -13,7 +13,7 @@ This section provides the details regarding the implementation of the automated 
 Figure \ref{fig:fair_use_legal_bot} shows an overview
 of the methods used. The system starts by retrieving the top-$k$ most relevant legal cases using a graph-based database that takes into account not just text similarity, but also court authority and how often cases are cited. Each case is then analyzed step by step using Chain-of-Thought reasoning to assess how it applies to the four Fair Use factors. Finally, these analyses are combined to generate a structured Fair Use evaluation based on the user’s document.
 
-The Large Language Model used is Google's Gemini Flash 2.0 \cite{11_GeminiLLM}, and the embedding model for semantic-based vector search is Google's Gecko \cite{29_GeckoEmbeddings}.
+The Large Language Model used is Google's Gemini Flash 2.0 \cite{11_GeminiLLM}, and the embedding model for semantic-based vector search is Google's Gecko \cite{29_GeckoEmbeddings}. For this research and the development of the prototype, Google's Gemini Flash 2.0 was selected primarily for its accessibility and efficient performance on the specific tasks required for our Fair Use analysis pipeline. Our internal assessments indicated that Gemini Flash performed comparably to other models for the necessary functions, such as the extraction of verbatim legal text segments based on structured prompts. While a systematic, comparative evaluation of various LLMs was outside the scope of this initial phase, we acknowledge its importance and consider it a valuable direction for future work to explore the performance nuances of different models on these specialized legal tasks.
 
 \subsection{Data Corpus}
 
@@ -41,7 +41,21 @@ Additionally, we sourced complaints related to Copyright infringement that were 
 
 Our knowledge graph is implemented using Neo4j \cite{27_neo4j}. In order to more faithfully represent the data in legal precedents related to the Fair Use Doctrine in copyright, we modeled the cases with a knowledge graph, and the schema of the graph database is shown in Figure \ref{fig:KG_Schema}. A schema defines the structure of the graph—it specifies what types of entities (nodes) exist, such as \textit{Case}, \textit{Court}, \textit{Opinion}, and Fair Use Factor (e.g., \textit{Purpose}, \textit{Market}), and how they are connected through relationships like \textit{CITED}, \textit{DECIDED\_IN}, or \textit{HAS\_OPINION}. For example, a \textit{Case} node from the Supreme Court is connected to a \textit{Court} node labeled ``SCOTUS'' and is cited by multiple lower-court \textit{Opinion} nodes.  This incorporates important features of the legal system in the United States where legal precedents issued by a higher court have higher authority over others, as well as the citation network formed between the cases.
 
-Furthermore, in every given opinion, we extract the verbatim paragraphs related to the \textit{Facts} of the case, the four factors: (1) \textit{Purpose} and character of the use (2) \textit{Nature} of the copyrighted work, (3) \textit{Amount} and substantiality of the portion used, and (4) Effect of the use on the potential \textit{Market}. We also included the \textit{Conclusion} of the opinion to reflect how the court balanced the four factors to arrive at their opinion. The extraction is done using the LLM to identify and extract verbatim paragraphs in which each of the four Fair Use factors were discussed, along with the factual background and the court's conclusion. We designed specific prompts to direct the LLM to focus on legal reasoning and factor-specific content. These prompts instruct the model to return direct quotations from the opinion text corresponding to each factor, rather than paraphrased summaries. 
+Furthermore, in every given opinion, we extract the verbatim paragraphs related to the \textit{Facts} of the case, the four factors: (1) \textit{Purpose} and character of the use (2) \textit{Nature} of the copyrighted work, (3) \textit{Amount} and substantiality of the portion used, and (4) Effect of the use on the potential \textit{Market}. We also included the \textit{Conclusion} of the opinion to reflect how the court balanced the four factors to arrive at their opinion. The extraction is done using the LLM to identify and extract verbatim paragraphs in which each of the four Fair Use factors were discussed, along with the factual background and the court's conclusion. To ensure the quality of the LLM extractions used to populate our knowledge graph, we performed a manual review process. This involved comparing the verbatim paragraphs extracted by the LLM against the original court opinions sourced from Court Listener and Hein Online. We verified that the extracted text segments accurately corresponded to the intended Fair Use factors (Purpose, Nature, Amount, Market Effect), the facts of the case, and the court's conclusion. It is also pertinent to note that legal opinions concerning the Fair Use Doctrine typically follow a structured analysis of the four statutory factors, which inherently aids the LLM in accurately identifying and extracting the relevant sections when guided by specific prompts.
+
+We designed specific prompts to direct the LLM to focus on legal reasoning and factor-specific content. These prompts instruct the model to return direct quotations from the opinion text corresponding to each factor, rather than paraphrased summaries. The following prompt, taken from our \texttt{extract\_instructions.py} file, targets the `purpose and character' statutory factor of Fair Use:
+
+\begin{verbatim}
+purpose_and_character = "Extract verbatim 
+paragraphs that discuss whether the use 
+was transformative, commercial, or for 
+nonprofit educational purposes, as
+analyzed by the court. 
+Only return the paragraphs please."
+\end{verbatim}
+
+\noindent
+Similar prompts were utilized for extracting factual backgrounds, the nature of the copyrighted work, the amount and substantiality of the portion used, the effect on the market, and the court's overall weighing of the factors and conclusion.
 
 \begin{figure}[ht]
 \centering
@@ -154,7 +168,7 @@ Lastly, based on the top $k$ legal precedents that are retrieved, an additional 
 
 Figure \ref{fig:pagerank} displays the distribution of legal cases by their log-adjusted PageRank, a measure of influence within the legal citation network. Most cases, particularly from District Courts, cluster at lower PageRank values, while a few landmark Supreme Court decisions like \textit{Campbell v. Acuff-Rose Music, Inc.} and \textit{Harper \& Row v. Nation Enterprise} have disproportionally high PageRank values. This is, of course, not surprising, as many natural networks exhibit power-law distributions \cite{33_ScaleFreeNetwork}.
 
-Although \textit{Warhol v. Goldsmith}, 598 U.S. 508 (2023), is considered to be highly significant by most legal scholars, its recency means it has had limited time to accumulate citations. This is a limitation of PageRank which does not account for time. Future work could explore time-adjusted measures to better capture the emerging influence of newer cases.
+Although \textit{Warhol v. Goldsmith}, 598 U.S. 508 (2023), is considered to be highly significant by most legal scholars, its recency means it has had limited time to accumulate citations. This is a limitation of PageRank which does not account for time. Future work could explore time-adjusted measures to better capture the emerging influence of newer cases. This could involve implementing variations of PageRank that assign greater weight to more recent citations or incorporate a decay factor for older citations.
 
 \subsection{Current Progress and Implementation}
 

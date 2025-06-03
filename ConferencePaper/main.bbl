@@ -337,11 +337,12 @@
   \bibinfo{volume}{6} (\bibinfo{year}{2021}) \bibinfo{pages}{3617}. \URLprefix
   \url{https://doi.org/10.21105/joss.03617}.
 %Type = Misc
-\bibitem[{{Administrative Office of the U.S. Courts}(????)}]{26_PACER}
+\bibitem[{{Administrative Office of the U.S. Courts}(2025)}]{26_PACER}
 \bibinfo{author}{{Administrative Office of the U.S. Courts}},
   \bibinfo{title}{Public access to court electronic records (pacer)},
-  \bibinfo{howpublished}{\url{https://pacer.uscourts.gov}}, ????
-  \bibinfo{note}{Original source of federal court records}.
+  \bibinfo{howpublished}{\url{https://pacer.uscourts.gov}},
+  \bibinfo{year}{2025}. \bibinfo{note}{Original source of federal court
+  records}.
 %Type = Manual
 \bibitem[{{Neo4j, Inc.}(2025)}]{27_neo4j}
 \bibinfo{author}{{Neo4j, Inc.}}, \bibinfo{title}{Neo4j Graph Database},

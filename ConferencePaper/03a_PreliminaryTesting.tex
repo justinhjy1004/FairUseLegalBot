@@ -1,4 +1,4 @@
-\section{Preliminary Testing on Retrieval}
+
 
 In this section, we describe the preliminary experiments conducted to evaluate our retrieval system. The primary goal was to compare the baseline Standard RAG approach with our proposed Structured RAG method, which incorporates additional legal structure in the form of citation authority and court hierarchy.
 
@@ -27,16 +27,19 @@ In this section, we describe the preliminary experiments conducted to evaluate o
 
 \begin{table}[ht]
   \centering
-  \caption{Comparison of Retrieval Methods with Grouped Metrics. All scores are min-max scaled.}
+	\caption{Comparison of Retrieval Methods with Grouped Metrics. All scores are min-max scaled. Pairwise t-test indicate that the differences in retrieval scores in terms of PageRank and Text Similarity are statistically significant.}
   \label{tab:grouped_retrieval_comparison}
   \begin{tabular}{l cc | cc}
   \toprule
-  \textbf{Retrieval Method} & \multicolumn{2}{c}{\textbf{PageRank}} & \multicolumn{2}{c}{\textbf{Text Similarity}} \\
+	  & \multicolumn{2}{c}{\textbf{PageRank}} & \multicolumn{2}{c}{\textbf{Text Similarity}} \\
   \cmidrule(r){2-3} \cmidrule(l){4-5}
-                            & \textbf{Mean}    & \textbf{SD}    & \textbf{Mean}      & \textbf{SD}      \\
+	  \textbf{Retrieval Method} & \textbf{Mean}    & \textbf{SD}    & \textbf{Mean}      & \textbf{SD}      \\
   \midrule
   Standard RAG    & 0.026 & 0.114 & 0.753 & 0.169 \\
   Structured RAG  & 0.213 & 0.315 & 0.521 & 0.305 \\
+  \midrule
+	  \textit{t-test} & \multicolumn{2}{c}{$t(212.87)=-7.27$} & \multicolumn{2}{c}{$t(263.43)=8.67$} \\
+	  \textit{p-value}& \multicolumn{2}{c}{$p < .001$} & \multicolumn{2}{c}{$p < .001$} \\
   \bottomrule
   \end{tabular}
   \end{table}

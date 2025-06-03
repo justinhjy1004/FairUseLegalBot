@@ -1,10 +1,11 @@
 library(tidyverse)
 
-std_RAG <- read_csv("./Data/StandardRAGRetrieval.csv")
-str_RAG <- read_csv("./Data/PRRAGRetrieval.csv")
+std_RAG <- read_csv("../Data/StandardRAGRetrieval.csv")
+str_RAG <- read_csv("../Data/PRRAGRetrieval.csv")
 
 std_RAG$`Retrieval Method` <- "Standard RAG"
 str_RAG$`Retrieval Method` <- "Structured RAG"
+
 
 df <- rbind(std_RAG, str_RAG) 
 
@@ -14,6 +15,12 @@ df |>
              sd_pagerank = sd(pagerank),
              m_text_sim = mean(text_sim),
              sd_text_sim = sd(text_sim))
+
+t.test(df[df$`Retrieval Method` == "Standard RAG",]$text_sim,
+       df[df$`Retrieval Method` == "Structured RAG",]$text_sim)
+
+t.test(df[df$`Retrieval Method` == "Standard RAG",]$pagerank,
+       df[df$`Retrieval Method` == "Structured RAG",]$pagerank)
 
 df |>
   gather(key = "Metric", value = "Value", text_sim, pagerank) |>
