@@ -34,7 +34,7 @@ Using WestLaw Precision's fact pattern search, we located all legal precedents r
 
 The number of opinions exceeds the number of cases because a single case may generate multiple judicial opinions, including appellate decisions, as well as concurring or dissenting views authored by individual judges.
 
-Additionally, we sourced complaints related to Copyright infringement that were not resolved in court from Public Access to Court Electronic Records (PACER) \cite{26_PACER}. These serve as a preliminary test dataset for our working prototype, as they represent real Fair Use disputes that were unresolved, and hence provide a way to measure how well our model performs in unresolved cases. We sourced a total of 20 cases.
+Additionally, we sourced complaints related to Copyright infringement that were not resolved in court from Public Access to Court Electronic Records (PACER) \cite{26_PACER}. These serve as a preliminary test dataset for our working prototype, as they represent real Fair Use disputes that were unresolved, and hence provide a way to measure how well our model performs in unresolved cases. We sourced a total of 20 cases. We focused on unresolved cases because resolved cases—those with judicial opinions—are not suitable for testing the model's capabilities. Since resolved cases already have known outcomes, they do not adequately assess how well the system generalizes to new, undecided disputes. In contrast, unresolved cases function as an unseen dataset, enabling a more meaningful evaluation of the retrieval system's generalization performance.
 
 \subsection{Data Representation}
 \label{sec: data_representation_KG}
