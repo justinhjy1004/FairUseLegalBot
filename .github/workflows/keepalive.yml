@@ -1,8 +1,6 @@
 name: Keepalive
 
-on:
-  schedule:
-    - cron: '0 */8 * * *'  # Every 8 hours
+on: [push]
 
 jobs:
   empty_commit:
